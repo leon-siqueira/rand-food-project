@@ -1,1 +1,55 @@
 // Specific CSS for your home-page
+
+.home-container {
+  height: 80vh;
+  display: flex;
+
+  .banner-1 {
+    background: rgb(228, 166, 166);
+    height: 80vh;
+    width: 50vw;
+  }
+
+  .banner-2 {
+    background: rgb(247, 247, 206);
+    height: 80vh;
+    width: 50vw;
+  }
+  .home-banner-1 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+
+  .section-card {
+    // border: 1px solid red;
+    text-align: center;
+    width: 300px;
+    min-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    width: 100vh;
+  }
+  .banner-1 {
+    height: 50vh;
+    width: 100vh;
+  }
+  .banner-2 {
+    height: 50vh;
+    width: 100vh;
+  }
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
