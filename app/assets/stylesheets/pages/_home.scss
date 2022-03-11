@@ -7,37 +7,27 @@
 
   .banner-1 {
     background: rgb(228, 166, 166);
-    height: 100%;
+    height: 80vh;
     width: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .banner-2 {
     background: rgb(247, 247, 206);
-    height: 100%;
+    height: 80vh;
     width: 50%;
   }
 
   .header-container-main {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-  }
-
-  .header-container-search {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin-left: 2rem;
+    margin-top: 25%;
   }
 
   .search-form-control {
-    width: 80%;
-  }
-
-  .search-btn {
-    margin-left: 8px;
+    width: 300px;
   }
 }
 
@@ -64,23 +54,30 @@
   margin-bottom: 1rem;
 }
 
+
+@media (max-width: 1400px) {
+
+}
+
+@media (max-width: 1200px) {
+
+}
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
     width: 100%;
-
-    .banner-1 {
-      height: 50vh;
-      width: 100%;
-    }
-
-    .banner-2 {
-      height: 50vh;
-      width: 100%;
-    }
   }
   .header-container-main{
     margin-left: auto !important;
+  }
+  .banner-1 {
+    height: 50vh;
+    width: 100% !important;
+  }
+  .banner-2 {
+    height: 50vh;
+    width: 100% !important;
   }
   .section-container {
     flex-direction: column;

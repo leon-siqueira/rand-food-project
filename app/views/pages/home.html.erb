@@ -2,19 +2,20 @@
   <div class="banner-1">
   <div class="container header-container-main">
       <div class="header-container-text">
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, commodi</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Molestiae, commodi</h1>
       </div>
         <div>
-          <form>
-            <div class="header-container-search">
-              <div class="search-form-control">
-                <input class="form-control" type="text" id="inputAddress" placeholder="Enter delivery address" />
-              </div>
-              <div class="search-btn">
-                <button class="btn btn-primary" type="submit">Button</button>
-              </div>
-            </div>
-          </form>
+          <%= form_with url: "/", method: :get do |form| %>
+            <%= form.label :query, "Search for:" %>
+            <%= form.text_field :query %>
+            <%= form.submit "Search" %>
+          <% end %>
+            <%#= simple_form_for @search do |form| %>
+            <%#= form.input :address %>
+            <%#= form.submit %>
+            <%# end %>
+
         </div>
 </div>
   </div>
