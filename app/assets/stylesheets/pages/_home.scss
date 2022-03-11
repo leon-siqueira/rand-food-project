@@ -7,27 +7,37 @@
 
   .banner-1 {
     background: rgb(228, 166, 166);
-    height: 80vh;
+    height: 100%;
     width: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .banner-2 {
     background: rgb(247, 247, 206);
-    height: 80vh;
+    height: 100%;
     width: 50%;
   }
 
   .header-container-main {
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
-    margin-top: 25%;
+    max-width: 500px;
+  }
+
+  .header-container-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .search-form-control {
-    width: 300px;
+    width: 80%;
+  }
+
+  .search-btn {
+    margin-left: 8px;
   }
 }
 
@@ -54,30 +64,23 @@
   margin-bottom: 1rem;
 }
 
-
-@media (max-width: 1400px) {
-
-}
-
-@media (max-width: 1200px) {
-
-}
-
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
     width: 100%;
+
+    .banner-1 {
+      height: 50vh;
+      width: 100%;
+    }
+
+    .banner-2 {
+      height: 50vh;
+      width: 100%;
+    }
   }
   .header-container-main{
     margin-left: auto !important;
-  }
-  .banner-1 {
-    height: 50vh;
-    width: 100% !important;
-  }
-  .banner-2 {
-    height: 50vh;
-    width: 100% !important;
   }
   .section-container {
     flex-direction: column;
