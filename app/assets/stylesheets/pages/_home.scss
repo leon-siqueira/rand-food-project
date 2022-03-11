@@ -1,1 +1,92 @@
 // Specific CSS for your home-page
+
+.header-container {
+  height: 80vh;
+  display: flex;
+  // margin-top: 56px;
+
+  .banner-1 {
+    background: rgb(228, 166, 166);
+    height: 80vh;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner-2 {
+    background: rgb(247, 247, 206);
+    height: 80vh;
+    width: 50%;
+  }
+
+  .header-container-main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-top: 25%;
+  }
+
+  .search-form-control {
+    width: 300px;
+  }
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+
+  .section-card {
+    // border: 0px solid red;
+    text-align: center;
+    width: 300px;
+    min-width: none;
+  }
+}
+
+.moods-categories {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+@media (max-width: 1400px) {
+
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .header-container-main{
+    margin-left: auto !important;
+  }
+  .banner-1 {
+    height: 50vh;
+    width: 100% !important;
+  }
+  .banner-2 {
+    height: 50vh;
+    width: 100% !important;
+  }
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0rem;
+    margin: 0rem
+  }
+}
+
+
+@media (max-width: 576px) {
+}
