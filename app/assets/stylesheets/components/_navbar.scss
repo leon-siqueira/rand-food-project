@@ -1,6 +1,9 @@
 .navbar-main {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar-main .navbar-collapse {
