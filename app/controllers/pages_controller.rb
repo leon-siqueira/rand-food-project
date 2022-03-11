@@ -5,7 +5,6 @@ class PagesController < ApplicationController
     if params[:query].present?
       results = Geocoder.search(params[:query])
       results.first.coordinates
-      raise
     end
 
   end
