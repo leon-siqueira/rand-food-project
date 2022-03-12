@@ -4,8 +4,9 @@ class PagesController < ApplicationController
   def home
     if params[:query].present?
       results = Geocoder.search(params[:query])
-      results.first.coordinates
+      $latlong = "#{results.first.coordinates[0]},#{results.first.coordinates[1]}"
+      redirect_to results_path
     end
-
   end
+
 end
