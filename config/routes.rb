@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'moods/create'
   get 'results', to: 'results#index', as: 'results'
   get 'results/show', to: 'results#show', as: 'result'
+  get 'search', to: 'results#search', as: 'search'
   devise_for :users
   root to: 'pages#home'
 
