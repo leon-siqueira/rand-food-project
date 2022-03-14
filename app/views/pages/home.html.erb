@@ -6,7 +6,7 @@
         adipisicing elit. Molestiae, commodi</h1>
       </div>
         <div>
-          <%= form_with url: "/", method: :get do |form| %>
+          <%= form_with url: "results", method: :get do |form| %>
             <%= form.label :query, "Search for:" %>
             <%= form.text_field :query %>
             <%= form.submit "Search" %>
