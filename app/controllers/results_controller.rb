@@ -7,6 +7,7 @@ class ResultsController < ApplicationController
 
   def index
     set_request
+    set_markers
   end
 
   def show
@@ -26,6 +27,16 @@ class ResultsController < ApplicationController
       foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
       foursquare_response = JSON.parse(foursquare_request)
       @results = foursquare_response['results']
+      @results = @results.sort_by { |result| result["geocodes"]["main"]["latitude"] }
+    end
+  end
+
+  def set_markers
+    @markers = @results.map do |result|
+      {
+        lat: result['geocodes']['main']['latitude'],
+        lng: result['geocodes']['main']['longitude']
+      }
     end
   end
 
