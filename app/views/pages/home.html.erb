@@ -1,34 +1,29 @@
 <header class="header-container">
-  <div class="banner-1">
   <div class="container header-container-main">
-      <div class="header-container-text">
-        <h1>Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Molestiae, commodi</h1>
-      </div>
-        <div>
-          <%= form_with url: "results", method: :get do |form| %>
-            <%= form.label :query, "Search for:" %>
-            <%= form.text_field :query %>
-            <%= form.submit "Search" %>
-          <% end %>
-            <%#= simple_form_for @search do |form| %>
-            <%#= form.input :address %>
-            <%#= form.submit %>
-            <%# end %>
-
-        </div>
-</div>
+    <div class="header-container-text">
+      <h1 class="title">Don`t overthink it!</h1>
+      <h3 class="subtitle">Let us find the right food for your mood.</h3>
+    </div>
+    <div class="form-responsive">
+      <%= form_with url: "results", method: :get do |form| %>
+        <%# <%= form.label :query, "Search for:" %>
+        <%= form.text_field :query, placeholder: "Enter your address", class:"form-search"  %>
+        <%= form.submit "Search", class:"btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-  <div class="banner-2">
+  <div class="header-image">
+    <%= image_tag "img-home"%>
+    <div class="image-text">
+      <%# <h2 class="subtitle">I’ll be there for yoooou!</h2> %>
+    </div>
   </div>
 </header>
-<section>
+
+<section class="section-help">
   <div class="moods-categories">
-    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, commodi</h2>
+    <h1 class="help-title">Having trouble choosing where to eat?</h2>
   </div>
-  <div>
-</section>
-<section>
   <div class="section-container">
     <div class="section-card">
       <img src="https://gopuff.com/go/Value-Prop-1.svg" style="width 40px">
