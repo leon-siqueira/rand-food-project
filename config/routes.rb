@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   get 'moods/index'
   get 'moods/show'
   get 'moods/create'
-  get 'results', to: 'results#index', as: 'results'
+  resources :results, only: %i[index]
   get 'results/show', to: 'results#show', as: 'result'
-  get 'search', to: 'results#search', as: 'search'
   devise_for :users
   root to: 'pages#home'
 

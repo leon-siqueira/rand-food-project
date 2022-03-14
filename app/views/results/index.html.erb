@@ -4,5 +4,5 @@
   <ul><li><%= "#{result['name']}" %></ul></li>
 <% end %>
 
- <%= link_to "Resultado", result_path %>
+ <%= link_to "Resultado", result_path(query: params[:query]) %>
  <%= link_to "Voltar", root_path %>
