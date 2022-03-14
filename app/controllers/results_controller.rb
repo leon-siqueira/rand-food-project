@@ -17,6 +17,7 @@ class ResultsController < ApplicationController
   private
 
   def set_request
+    # o site tá quebrando se não há query alguma inserida na barra de pesquisa e o usuário clica search "NoMethodError in Results#index"
     set_params
     if params[:query].present?
       results = Geocoder.search(params[:query])
