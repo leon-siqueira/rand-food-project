@@ -1,13 +1,18 @@
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="section-main">
+  <div class="results-list">
+    <div class="results">
+      <% @results.collect do |result| %>
+        <ul><li class="result-line"><%= "#{result['name']}" %></ul></li>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "Resultado", result_path(query: params[:query]) %>
+      <%= link_to "Voltar", root_path %>
+    </div>
+  </div>
+  <div class="mapbox" style="width: 80%; height: 500px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-
-<% @results.collect do |result| %>
-  <ul><li><%= "#{result['name']}" %></ul></li>
-<% end %>
-
- <%= link_to "Resultado", result_path(query: params[:query]) %>
- <%= link_to "Voltar", root_path %>

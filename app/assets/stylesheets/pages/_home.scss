@@ -63,6 +63,13 @@
   flex-direction: column;
 }
 
+.select-tag {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
 .moods-categories {
   display: flex;
   justify-content: center;
@@ -116,6 +123,8 @@
     .header-container-main{
       margin-left: auto !important;
       width: 100%;
+      margin-left: 5%;
+      margin-right: 5%;
     }
 
     .header-image {

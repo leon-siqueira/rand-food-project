@@ -1,16 +1,26 @@
 
-<ul>
-  <li>Nome: <%= @show_result['name'] %></li>
-  <li>Distância: <%= @show_result['distance'] %></li>
-  <li>Descrição <%= @show_result['description'] %></li>
-  <li>Telefone <%= @show_result['tel'] %></li>
-  <li>Website <%= @show_result['website'] %></li>
-  <li>Rating <%= @show_result['rating'] %></li>
-  <li>Preço <%= @show_result['price'] %></li>
-  <li>Endereço <%= @show_result['location']['address'] %></li>
-  <li>Tastes <%= @show_result['tastes'] %></li>
-  <li>Instagram <%= @show_result['social_media']['instagram'] %></li>
-  <li>Facebook <%= @show_result['social_media']['facebook_id'] %></li>
-</ul>
-
-<%= link_to "Voltar", :back %>
+<section class="result-section">
+  <div class="result-random">
+    <ul>
+      <li>Nome: <%= @show_result['name'] %></li>
+      <li>Distância: <%= @show_result['distance'] %></li>
+      <li>Descrição: <%= @show_result['description'] %></li>
+      <li>Telefone: <%= @show_result['tel'] %></li>
+      <li>Website: <%= @show_result['website'] %></li>
+      <li>Rating: <%= @show_result['rating'] %></li>
+      <li>Preço: <%= @show_result['price'] %></li>
+      <li>Endereço: <%= @show_result['location']['address'] %></li>
+      <%# <li>Tastes <% @show_result['tastes'] </li> %>
+      <% if @show_result['social_media']['instagram'] %>
+        <li>Instagram <%= @show_result['social_media']['instagram'] %></li>
+      <% end %>
+      <% if @show_result['social_media']['facebook_id'] %>
+        <li>Facebook <%= @show_result['social_media']['facebook_id'] %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="botoes">
+    <%= link_to "Resultado", result_path(query: params[:query]) %>
+    <%= link_to "Voltar", :back %>
+  </div>
+</section>
