@@ -5,14 +5,14 @@
         <ul><li class="result-line"><%= "#{result['name']}" %></ul></li>
       <% end %>
     </div>
+    <div>
+      <%= link_to "Resultado", result_path(query: params[:query]) %>
+      <%= link_to "Voltar", root_path %>
+    </div>
   </div>
   <div class="mapbox" style="width: 80%; height: 500px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
-<div>
-  <%= link_to "Resultado", result_path(query: params[:query]) %>
-  <%= link_to "Voltar", root_path %>
 </div>
