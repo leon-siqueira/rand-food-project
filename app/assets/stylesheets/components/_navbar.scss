@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: #3A3335;
+  text-align: right;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,7 +15,7 @@
   color: #FDFFFF;
   font-size: 25px;
   line-height: 0.9;
-  margin-left: 10px;
+  margin-left: 2rem;
 }
 
 i {
@@ -29,4 +30,9 @@ i {
 .navbar-light .navbar-nav .nav-link {
   font-size: 13px;
   color: #FDFFFF;
+}
+
+.avatar {
+  margin-left: 1rem;
+  margin-right: 2rem;
 }
