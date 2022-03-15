@@ -12,12 +12,15 @@
   .result-random {
     padding-top: 2rem;
     background-color: #fdffff;
+    min-height: 5%;
     max-height: 100%;
     max-width: 29rem;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1.8rem;
   }
 
   .botoes {
