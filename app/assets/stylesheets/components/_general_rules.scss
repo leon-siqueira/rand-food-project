@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
-.behind{
-  z-index: 0;
+html{
+  min-height: 100vh;
+}
+
+body{
+  height: 100%;
 }

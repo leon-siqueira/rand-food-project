@@ -8,16 +8,16 @@
       <%= form_with url: "results", method: :get do |form| %>
       <%# <%= form.label :query, "Search for:" %>
         <div class="row">
-          <div class="col-lg-8 d-flex align-items-start" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             <%= form.text_field :query,
                               placeholder: "Enter your address",
                               class: "d-none"%>
           </div>
+          <div class="col-lg-3">
+            <%= form.submit "Search", class:"btn btn-botao w-100" %>
+          </div>
           <div class="col-lg-8 d-flex select-tag">
             <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
-          </div>
-          <div class="col-lg-3">
-            <%= form.submit "Search", class:"btn btn-botao w-md-75 m-0 mt-lg-0 mt-3 behind" %>
           </div>
         </div>
       <% end %>

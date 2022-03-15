@@ -38,7 +38,12 @@
   position: absolute;
   li{
     margin: 1em;
+    cursor: pointer;
+    &:hover{
+      color:rgba(217, 92, 57, 0.9);
+    }
   }
+
 }
 
 .mapboxgl-ctrl-geocoder{
