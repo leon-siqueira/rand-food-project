@@ -1,0 +1,17 @@
+.form-search {
+  background: #FFFCFC;
+  mix-blend-mode: normal;
+  border-radius: 30px;
+  width: 50%;
+  height: 43px;
+  left: 82px;
+  top: 462px;
+  border-color: #ffffff00;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .form-search {
+    width: 100%;
+  }
+}
