@@ -6,10 +6,8 @@ class ResultsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
   before_action :set_params
 
-
   def index
     set_request
-    set_markers
   end
 
   def show
@@ -29,6 +27,9 @@ class ResultsController < ApplicationController
       foursquare_response = JSON.parse(foursquare_request)
       @results = foursquare_response['results']
       @results = @results.sort_by { |result| result["geocodes"]["main"]["latitude"] }
+      set_markers
+    else
+      redirect_to root_path
     end
   end
 
