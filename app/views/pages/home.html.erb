@@ -10,9 +10,9 @@
         <div class="row">
           <div class="col-lg-8 d-flex">
             <%= form.text_field :query,
-                                # placeholder: "Enter your address",
-                                # class:"form-search ps-3 align-self-end w-100",
-                                input_html: { data: { geocoder_target: "address" } },
+                                placeholder: "Enter your address",
+                                class:"form-search ps-3 align-self-end w-100",
+                                input_html: { data: { geocoder_target: "query" } },
                                 wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
           </div>
           <div class="col-lg-3">

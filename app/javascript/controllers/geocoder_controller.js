@@ -4,7 +4,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = { apiKey: String }
 
-  static targets = ["address"]
+  static targets = ["query"]
 
   connect() {
     this.geocoder = new MapboxGeocoder({
@@ -17,10 +17,10 @@ export default class extends Controller {
   }
 
   #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
+    this.queryTarget.value = event.result["place_name"]
   }
 
   #clearInputValue() {
-    this.addressTarget.value = ""
+    this.queryTarget.value = ""
   }
 }
