@@ -6,7 +6,7 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "Resultado", result_path(query: params[:query]) %>
+      <%= link_to "Resultado", result_path(query: params[:query], taste: params[:taste]) %>
       <%= link_to "Voltar", root_path %>
     </div>
   </div>
