@@ -1,0 +1,39 @@
+@import "home";
+
+
+.result-section {
+  background: #F7CB15;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .result-random {
+    padding-top: 2rem;
+    background-color: #fdffff;
+    max-height: 100%;
+    max-width: 29rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+  }
+
+  .botoes {
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem; // 16px
+    line-height: 1.875; //30px
+    /* or 125% */
+    display: flex;
+    align-items: center;
+    color: #3A3335;
+  }
+}
