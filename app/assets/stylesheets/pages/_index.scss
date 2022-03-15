@@ -60,3 +60,33 @@
   align-items: center;
   color: #3A3335;
 }
+
+.index-btn {
+    background-color:#D95D39 ;
+}
+
+.index-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  text-decoration: none;
+  margin: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  background: #D95D39;
+  border-radius: 30px;
+  min-width: 115px;
+  width: 40%;
+  height: 42px;
+  padding: 10px;
+  border-color: #ffffff00
+}
+
+.index-btn:hover {
+  color: #fff;
+  background-color: #d95c39;
+  border-color: #ffffff00;
+ }

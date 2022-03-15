@@ -6,8 +6,8 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "Resultado", result_path(query: params[:query]) %>
-      <%= link_to "Voltar", root_path %>
+      <%= link_to "Choose for me!", result_path(query: params[:query]), class:"index-btn" %>
+      <%= link_to "Back", root_path, class:"index-btn" %>
     </div>
   </div>
   <div class="mapbox" style="width: 80%; height: 500px;"
