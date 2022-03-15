@@ -1,34 +1,47 @@
 // Specific CSS for your home-page
 
 .header-container {
-  height: 80vh;
   display: flex;
+  height: 80vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #F7CB15;
+  border-radius: 0px 0px 80px 80px;
   // margin-top: 56px;
-
-  .banner-1 {
-    background: rgb(228, 166, 166);
-    height: 80vh;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .banner-2 {
-    background: rgb(247, 247, 206);
-    height: 80vh;
-    width: 50%;
-  }
 
   .header-container-main {
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
-    margin-top: 25%;
+    width: 50%;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    margin-left: 8%;
   }
 
-  .search-form-control {
-    width: 300px;
+  .header-container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
   }
+
+   .header-image {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .image-text {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.section-help {
+  background: #F9F9F9;
 }
 
 .section-container {
@@ -45,6 +58,11 @@
   }
 }
 
+.form-responsive {
+  display: flex;
+  flex-direction: column;
+}
+
 .moods-categories {
   display: flex;
   justify-content: center;
@@ -54,39 +72,61 @@
   margin-bottom: 1rem;
 }
 
-
-@media (max-width: 1400px) {
-
+.title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 4rem; // 64px
+  line-height: 4rem;
+  /* or 31% */
+  display: flex;
+  align-items: center;
+  color: #3A3335;
 }
 
-@media (max-width: 1200px) {
+.subtitle {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.5rem; // 24px
+  line-height: 1.875; //30px
+  /* or 125% */
+  display: flex;
+  align-items: center;
+  color: #3A3335;
+}
 
+.help-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3rem; // 64px
+  line-height: 3rem;
+  /* or 31% */
+  display: flex;
+  align-items: center;
+  color: #3A3335;
 }
 
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
     width: 100%;
+
+    .header-container-main{
+      margin-left: auto !important;
+      width: 100%;
+    }
+
+    .header-image {
+      width: 80%;
+    }
   }
-  .header-container-main{
-    margin-left: auto !important;
-  }
-  .banner-1 {
-    height: 50vh;
-    width: 100% !important;
-  }
-  .banner-2 {
-    height: 50vh;
-    width: 100% !important;
-  }
+
   .section-container {
     flex-direction: column;
     align-items: center;
     gap: 0rem;
     margin: 0rem
   }
-}
-
-
-@media (max-width: 576px) {
 }
