@@ -44,6 +44,22 @@
     color: #3A3335;
   }
 
+  .btn-leave-page {
+    background-color: #FDFFFF;
+    // border-style: solid;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #D95D39;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 115px;
+    width: 50%;
+    padding: 10px;
+    // border-width: thin;
+    border: 1px solid #D95D39;
+  }
+
   @media (max-width: 768px) {
     .btn-primary {
       width: 100%;

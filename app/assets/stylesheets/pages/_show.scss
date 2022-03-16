@@ -8,9 +8,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #FDFFFF ;
-  gap: 1rem;
+  // gap: 1rem;
   position: relative;
   // background: #FDFFFF;
   // height: 85vh;
@@ -48,4 +48,5 @@
     align-items: center;
     color: #3A3335;
   }
+
 }
