@@ -37,3 +37,10 @@ i {
   margin-left: 1rem;
   margin-right: 2rem;
 }
+
+.navbar-brand .nav-link{
+  color: #F7CB15;
+  &:hover{
+    color: #F7CB15;
+  }
+}
