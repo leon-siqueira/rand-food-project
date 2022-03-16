@@ -11,3 +11,18 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+// html{
+//   min-height: 100vh;
+// }
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
