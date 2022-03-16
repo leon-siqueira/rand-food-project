@@ -11,7 +11,8 @@
           <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             <%= form.text_field :query,
                               placeholder: "Enter your address",
-                              class: "d-none"%>
+                              class: "d-none",
+                              data: { geocoder_target: "query"}%>
           </div>
           <div class="col-lg-3">
             <%= form.submit "Search", class:"btn btn-botao w-100" %>

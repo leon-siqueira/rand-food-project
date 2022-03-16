@@ -7,6 +7,9 @@
   display: none;
 }
 
+.mapboxgl-ctrl-geocoder--powered-by{
+  padding-left: 2em;
+}
 
 .mapboxgl-ctrl-geocoder--input{
   width: 100%;
@@ -19,7 +22,6 @@
 .suggestions-wrapper{
   background-color: white;
   // display: block;
-
   ul {
     list-style: none;
   }
@@ -32,15 +34,17 @@
   width: 90%;
   margin-top: 1px;
   padding-bottom: 1em;
+  padding-left: 0em;
   left: 5%;
   z-index: 1;
   display: block;
   position: absolute;
   li{
-    margin: 1em;
+    padding: 1em;
+    padding-left: 2em;
     cursor: pointer;
     &:hover{
-      color:rgba(217, 92, 57, 0.9);
+      background-color:rgba(217, 92, 57, 0.25);
     }
   }
 
