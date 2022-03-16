@@ -1,18 +1,14 @@
 <div class="section-main">
-  <div class="results-list">
-    <div class="results">
-      <% @results.collect do |result| %>
-        <ul><li class="result-line"><%= "#{result['name']}" %></ul></li>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to "Resultado", result_path(query: params[:query], taste: params[:taste]) %>
-      <%= link_to "Voltar", root_path %>
-    </div>
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "btn-voltar" %>
+  <div class="title-results">
+    <%= "Top" %>
+    <%= @results.count %>
+    <%= "places near you:" %>
   </div>
   <div class="mapbox" style="width: 80%; height: 500px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <%= link_to "Choose one for me!", result_path(query: params[:query], taste: params[:taste]), class: "btn-choose" %>
 </div>
