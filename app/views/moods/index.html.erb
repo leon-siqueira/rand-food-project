@@ -1,2 +1,14 @@
 <h1>Moods#index</h1>
 <p>Find me in app/views/moods/index.html.erb</p>
+
+  <% @moods.each do |mood| %>
+    <% if mood.user_id == nil || current_user.id %>
+    <h2><%= mood.name %></h2>
+    <p>query: <%= mood.query%></p>
+    <p>min price: <%= mood.min_price%></p>
+    <p>max price: <%= mood.max_price%></p>
+    <p>user_id: <%= mood.user_id%></p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Novo Mood', new_mood_path %>

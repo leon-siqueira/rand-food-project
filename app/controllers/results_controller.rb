@@ -49,22 +49,22 @@ class ResultsController < ApplicationController
   def set_params
     #@taste_options = ['sushi', 'pizza']
     @tastes = params[:taste]
+    @radius = 5000
+    @open_now = 'true'
+    @latlong =
+    @categories = 13000
+    @exclude_chains = true
+    @min_price = 1
+    @max_price = 4
+    @limit = 10
     # %20 = espaço, %2C = virgula
     # Tastes detalhados pelo usuário - tacos, good for groups, romantic, sushi, good for late nights, live music.
-    @radius = 5000
     #raio de busca de restaurantes - padrão pode ser 5km
-    @open_now = ''
     #open_now = true(padrão)
-    @latlong = 0
-    @categories = 13000
     #categories = 13000 por padrão (13000 referente a restaurantes e bares)
-    @exclude_chains = true
     #exclude_all_chains - excluir grandes redes de restaurantes (true or false)
-    @min_price = 1
     #minprice = valor de 1 até 4
-    @max_price = 4
     #maxprice = valor de 1 até 4
-    @limit = 10
     #limit = limite de resultados - max 50 min 1 // teste = 5
   end
 end

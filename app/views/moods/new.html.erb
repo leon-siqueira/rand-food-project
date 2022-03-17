@@ -1,0 +1,13 @@
+<h1>Moods#create</h1>
+<p>Find me in app/views/moods/create.html.erb</p>
+
+<%= simple_form_for(@mood) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :query %>
+  <%= f.input :near %>
+  <%= f.input :min_price %>
+  <%= f.input :max_price %>
+  <%= f.submit 'Salvar', class:'btn btn-primary mt-2' %>
+<% end %>
+
+<%= link_to 'Voltar', moods_path %>

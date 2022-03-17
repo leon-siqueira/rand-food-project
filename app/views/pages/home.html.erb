@@ -18,7 +18,7 @@
             <%= form.submit "Search", class:"btn btn-botao w-100" %>
           </div>
           <div class="col-lg-8 d-flex select-tag">
-            <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
+            <%= select_tag(:mood, options_for_select(current_user.moods.each {|mood| mood.name})) %>
           </div>
         </div>
       <% end %>
