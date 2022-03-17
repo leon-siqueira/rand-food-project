@@ -8,6 +8,11 @@
       <%= form_with url: "results", method: :get do |form| %>
       <%# <%= form.label :query, "Search for:" %>
         <div class="row">
+          <div class="d-flex align-items-center flex-wrap">
+            <%= form.collection_radio_buttons(:mood, @moods, :id, :name)  do |b|
+              b.label(class: "btn btn-primary btn-sm me-1 my-1 col single-letter-height", :"data-value" => b.value) { b.radio_button(class:'btn-check') + b.text }
+            end %>
+          </div>
           <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             <%= form.text_field :query,
                               placeholder: "Enter your address",
@@ -17,8 +22,9 @@
           <div class="col-lg-3">
             <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
           </div>
-          <div class="col-lg-8 d-flex select-tag">
-            <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
+          <div class="col-lg-8 <%#select-tag%>">
+
+            <%#= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
           </div>
         </div>
       <% end %>

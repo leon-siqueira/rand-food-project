@@ -48,6 +48,7 @@ class ResultsController < ApplicationController
 
   def set_params
     #@taste_options = ['sushi', 'pizza']
+    @setted_mood = Mood.find(params[:mood].to_i) if params[:mood].present?
     @tastes = params[:taste]
     # %20 = espaço, %2C = virgula
     # Tastes detalhados pelo usuário - tacos, good for groups, romantic, sushi, good for late nights, live music.
@@ -66,5 +67,7 @@ class ResultsController < ApplicationController
     #maxprice = valor de 1 até 4
     @limit = 10
     #limit = limite de resultados - max 50 min 1 // teste = 5
+
+
   end
 end

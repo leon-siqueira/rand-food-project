@@ -4,6 +4,7 @@
       <% @results.collect do |result| %>
         <ul><li class="result-line"><%= "#{result['name']}" %></ul></li>
       <% end %>
+      <%= @setted_mood.nil? ? "no mood setted" : @setted_mood%>
     </div>
     <div>
       <%= link_to "Resultado", result_path(query: params[:query], taste: params[:taste]) %>
