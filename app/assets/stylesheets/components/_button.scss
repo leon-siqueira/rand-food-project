@@ -5,16 +5,60 @@
     font-size: 18px;
     line-height: 30px;
     color: rgba(255, 255, 255, 0.9);
-    opacity: 0.9;
     margin-top: 0.5rem;
-    background: #D95D39;
+    background: rgba(217, 92, 57, 0.9);
     border-radius: 30px;
     min-width: 115px;
     width: 20%;
     height: 42px;
-    left: 479px;
-    top: 462px;
+    // left: 479px;
+    // top: 462px;
     border-color: #ffffff00
+  }
+
+  .btn-voltar { // from index.html
+    position: absolute;
+    top: 23px;
+    left: 15px;
+  }
+
+  .btn-voltar i { // from index.html
+    color: #3A3335;
+
+  }
+
+  .btn-choose  { // from index.html
+    background-color: #D95D39;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FDFFFF;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 115px;
+    width: 50%;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(167, 165, 165);
+  }
+
+  .btn-choose:hover { // from index.html
+    color: #3A3335;
+  }
+
+  .btn-leave-page {
+    background-color: #FDFFFF;
+    // border-style: solid;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #D95D39;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 115px;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #D95D39;
+    box-shadow: 5px 5px 5px rgb(167, 165, 165);
   }
 
   @media (max-width: 768px) {
@@ -26,5 +70,5 @@
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
   color: #fff;
   background-color: #d95c39;
-  border-color: #ffffff00; /*set the color you want here*/
+  // border-color: #ffffff00; /*set the color you want here*/
 }
