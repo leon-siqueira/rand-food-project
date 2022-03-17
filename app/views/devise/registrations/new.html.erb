@@ -1,6 +1,8 @@
-<div class="container d-flex main-container align-items-center">
+<div id="login" class="container d-flex align-items-center">
+  <div class="fill behind bg-main-yellow">
+  </div>
   <div class="row justify-content-center w-100">
-    <div class="col-md-8 bg-light p-5 border border-grey rounded-border">
+    <div class="col-md-8 p-5 bg-light-grey rounded-border">
       <h2>Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -9,25 +11,25 @@
           <%= f.input :name,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "name" } %>
+                      input_html: { autocomplete: "name", class: "input-pill" } %>
           <%= f.input :email,
                       required: true,
-                      input_html: { autocomplete: "email" }%>
+                      input_html: { autocomplete: "email", class: "input-pill" }%>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password", class: "input-pill" } %>
           <%= f.input :password_confirmation,
                       required: true,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password", class: "input-pill" } %>
           <%# remember to put a d-none on the address field after adding geocoder to the site %>
           <%= f.input :address,
                       required: true,
-                      input_html: { autocomplete: "address" } %>
+                      input_html: { autocomplete: "address", class: "input-pill" } %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up", class:'btn btn-primary mb-3' %>
+          <%= f.button :submit, "Sign up", class:'btn btn-botao mb-3 yellow-hover ease-out' %>
         </div>
       <% end %>
 

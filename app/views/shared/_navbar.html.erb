@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "main-brand yellow-hover ease-out" do %>
       <%= "Mood" %> <br />
       <%= "Menu" %>
     <% end %>
@@ -20,8 +20,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "blank-profile-picture.webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Moods", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "My Moods", "#", class: "dropdown-item yellow-hover ease-out" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item yellow-hover ease-out" %>
             </div>
           </li>
         <% else %>
@@ -29,8 +29,8 @@
             <% if params[:query].present? %>
               <%= link_to "#{params[:query]}", "#", class: "nav-link" %>
             <% end %>
-            <%= link_to "Signup", new_user_registration_path, class: "nav-link" %>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Signup", new_user_registration_path, class: "nav-link yellow-hover ease-out" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link yellow-hover ease-out" %>
           </li>
         <% end %>
       </ul>

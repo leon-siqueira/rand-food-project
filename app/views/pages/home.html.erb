@@ -8,14 +8,17 @@
       <%= form_with url: "results", method: :get do |form| %>
       <%# <%= form.label :query, "Search for:" %>
         <div class="row">
-          <div class="col-lg-8 d-flex">
-            <%= form.text_field :query, placeholder: "Enter your address", class:"form-search ps-3 align-self-end w-100"  %>
+          <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            <%= form.text_field :query,
+                              placeholder: "Enter your address",
+                              class: "d-none",
+                              data: { geocoder_target: "query"}%>
+          </div>
+          <div class="col-lg-3">
+            <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
           </div>
           <div class="col-lg-8 d-flex select-tag">
             <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
-          </div>
-          <div class="col-lg-3">
-            <%= form.submit "Search", class:"btn btn-botao" %>
           </div>
         </div>
       <% end %>
@@ -30,7 +33,7 @@
   </div>
 </header>
 
-<section class="section-help">
+<section class="section-help bg-light-grey">
   <div class="moods-categories">
     <h1 class="help-title">Having trouble choosing where to eat?</h2>
   </div>
