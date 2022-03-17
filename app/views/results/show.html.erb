@@ -9,17 +9,19 @@
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
   <div class="result-random">
-    <ul>
+    <ul class="fa-ul">
       <li>Distance: <%= @show_result['distance'] %></li>
       <li>Description: <%= @show_result['description'] %></li>
-      <li>Phone number: <%= @show_result['tel'] %></li>
-      <li>Website: <%= @show_result['website'] %></li>
-      <li>Rating: <%= @show_result['rating'] %></li>
+
+      <li><span class="fa-li"><i class="fas fa-phone-alt"></i></span><%= @show_result['tel'] %></li>
+      <li><span class="fa-li"><i class="fal fa-star"></i></span><%= @show_result['rating'] %></li>
+
       <li>Price: <%= @show_result['price'] %></li>
       <li>Address: <%= @show_result['location']['address'] %></li>
       <%# <li>Tastes <% @show_result['tastes'] </li> %>
+      <li>Website: <%= @show_result['website'] %></li>
       <% if @show_result['social_media']['instagram'] %>
         <li>Instagram <%= @show_result['social_media']['instagram'] %></li>
       <% end %>
