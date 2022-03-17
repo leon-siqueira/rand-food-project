@@ -19,12 +19,13 @@
 
   .btn-voltar { // from index.html
     position: absolute;
-    top: 15px;
+    top: 23px;
     left: 15px;
   }
 
   .btn-voltar i { // from index.html
     color: #3A3335;
+
   }
 
   .btn-choose  { // from index.html
@@ -38,6 +39,7 @@
     min-width: 115px;
     width: 50%;
     padding: 10px;
+    box-shadow: 5px 5px 5px rgb(167, 165, 165);
   }
 
   .btn-choose:hover { // from index.html
@@ -56,8 +58,8 @@
     min-width: 115px;
     width: 50%;
     padding: 10px;
-    // border-width: thin;
     border: 1px solid #D95D39;
+    box-shadow: 5px 5px 5px rgb(167, 165, 165);
   }
 
   @media (max-width: 768px) {

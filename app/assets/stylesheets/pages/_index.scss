@@ -17,6 +17,7 @@
 .mapbox {
   max-width: 50% !important;
   border-radius: 8px;
+  box-shadow: 5px 5px 5px rgb(167, 165, 165);
 }
 
 @media (max-width: 768px) {
@@ -36,8 +37,6 @@
   //   margin-bottom: 1rem;
   // }
 }
-
-
 
 .title-results {
   font-family: 'Roboto';

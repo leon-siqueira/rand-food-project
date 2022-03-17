@@ -1,7 +1,10 @@
 
 <section class="result-section">
   <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "btn-voltar" %>
-  <div class="title-results">Today's choice is: <%= @show_result['name'] %></div>
+  <div class="title-results-random">
+    <%= "Today's choice is:" %> <br />
+    <%= @show_result['name'] %>
+  </div>
   <div class="mapbox" style="width: 80%; height: 500px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
