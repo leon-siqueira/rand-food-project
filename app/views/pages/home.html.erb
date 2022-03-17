@@ -15,7 +15,7 @@
                               data: { geocoder_target: "query"}%>
           </div>
           <div class="col-lg-3">
-            <%= form.submit "Search", class:"btn btn-botao w-100" %>
+            <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
           </div>
           <div class="col-lg-8 d-flex select-tag">
             <%= select_tag(:mood, options_for_select(current_user.moods.each {|mood| mood.name})) %>
@@ -33,7 +33,7 @@
   </div>
 </header>
 
-<section class="section-help">
+<section class="section-help bg-light-grey">
   <div class="moods-categories">
     <h1 class="help-title">Having trouble choosing where to eat?</h2>
   </div>

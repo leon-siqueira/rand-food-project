@@ -1,15 +1,24 @@
 
 <section class="result-section">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "btn-voltar" %>
+  <div class="title-results-random">
+    <%= "Today's choice is:" %> <br />
+    <%= @show_result['name'] %>
+  </div>
+  <div class="mapbox" style="width: 80%; height: 500px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   <div class="result-random">
     <ul>
-      <li>Nome: <%= @show_result['name'] %></li>
-      <li>Distância: <%= @show_result['distance'] %></li>
-      <li>Descrição: <%= @show_result['description'] %></li>
-      <li>Telefone: <%= @show_result['tel'] %></li>
+      <li>Distance: <%= @show_result['distance'] %></li>
+      <li>Description: <%= @show_result['description'] %></li>
+      <li>Phone number: <%= @show_result['tel'] %></li>
       <li>Website: <%= @show_result['website'] %></li>
       <li>Rating: <%= @show_result['rating'] %></li>
-      <li>Preço: <%= @show_result['price'] %></li>
-      <li>Endereço: <%= @show_result['location']['address'] %></li>
+      <li>Price: <%= @show_result['price'] %></li>
+      <li>Address: <%= @show_result['location']['address'] %></li>
       <%# <li>Tastes <% @show_result['tastes'] </li> %>
       <% if @show_result['social_media']['instagram'] %>
         <li>Instagram <%= @show_result['social_media']['instagram'] %></li>
@@ -19,8 +28,9 @@
       <% end %>
     </ul>
   </div>
-  <div class="botoes">
-    <%= link_to "Resultado", result_path(query: params[:query]) %>
-    <%= link_to "Voltar", :back %>
+  <div style="width: 80%;">
+    <%= link_to "Nah, choose another", result_path(query: params[:query]), class: "btn btn-choose w-100 mb-2" %>
+    <%= link_to "Directions", root_path, class: "btn btn-leave-page w-100 mb-2" %>
+    <%= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>
