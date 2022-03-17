@@ -38,9 +38,13 @@ i {
   margin-right: 2rem;
 }
 
-.navbar-brand .nav-link{
-  color: #F7CB15;
-  &:hover{
-    color: #F7CB15;
-  }
+.main-brand  {
+  text-decoration: none;
+  width: 40px;
+  font-family: Jost;
+  font-weight: 900;
+  color: #FDFFFF;
+  font-size: 25px;
+  line-height: 0.9;
+  margin-left: 2rem;
 }

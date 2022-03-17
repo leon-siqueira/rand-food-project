@@ -10,6 +10,21 @@
   background-color: #F7CB15;
 }
 
+.bg-light-grey{
+  background-color: #f4f4f4 !important;
+}
+
+.yellow-hover{
+  &:hover{
+    color: #F7CB15 !important;
+    transition: all 0.2s ease-in !important;
+  }
+}
+
+.ease-out{
+  transition: all 0.2s ease-out;
+}
+
 .behind{
   display: block;
   position: absolute;
