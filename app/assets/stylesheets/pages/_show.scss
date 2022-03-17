@@ -2,16 +2,26 @@
 
 
 .result-section {
-  background: #F7CB15;
-  height: 85vh;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FDFFFF ;
+  // gap: 1rem;
+  position: relative;
+  // background: #FDFFFF;
+  // height: 85vh;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
 
   .result-random {
     padding-top: 2rem;
-    background-color: #fdffff;
+    background-color: white;
     min-height: 5%;
     max-height: 100%;
     max-width: 29rem;
@@ -23,6 +33,14 @@
     padding-right: 1.8rem;
   }
 
+  .title-results-random {
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #3A3335;
+
+  }
+
   .botoes {
     display: flex;
     flex-direction: row;
@@ -30,7 +48,6 @@
 
   li {
     font-family: 'Roboto';
-    font-style: normal;
     font-weight: 300;
     font-size: 1rem; // 16px
     line-height: 1.875; //30px
@@ -39,4 +56,7 @@
     align-items: center;
     color: #3A3335;
   }
+
 }
+
+

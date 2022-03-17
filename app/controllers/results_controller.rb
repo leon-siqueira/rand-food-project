@@ -13,6 +13,12 @@ class ResultsController < ApplicationController
   def show
     set_request
     @show_result = @results.sample
+    @markers = [
+      {
+        lat: @show_result['geocodes']['main']['latitude'],
+        lng: @show_result['geocodes']['main']['longitude']
+      }
+    ]
   end
 
   private
