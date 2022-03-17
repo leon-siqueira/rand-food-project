@@ -2,7 +2,7 @@
 <p>Find me in app/views/moods/index.html.erb</p>
 
   <% @moods.each do |mood| %>
-    <% if mood.user_id == nil || current_user.id %>
+    <% if mood.user_id == current_user.id %>
     <h2><%= mood.name %></h2>
     <p>query: <%= mood.query%></p>
     <p>min price: <%= mood.min_price%></p>

@@ -1,5 +1,5 @@
 class MoodsController < ApplicationController
-  before_action :set_mood, only: [:show, :edit]
+  before_action :set_mood, only: [:show, :edit, :destroy]
 
   def index
     @moods = Mood.all
@@ -13,6 +13,11 @@ class MoodsController < ApplicationController
     @mood = Mood.new(mood_params)
     @mood.user_id = current_user.id
     @mood.save
+  end
+
+  def destroy
+    @mood.destroy
+    redirect_to moods_path
   end
 
   def show

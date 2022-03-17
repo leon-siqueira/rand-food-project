@@ -18,7 +18,10 @@
             <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
           </div>
           <div class="col-lg-8 d-flex select-tag">
-            <%= select_tag(:mood, options_for_select(current_user.moods.each {|mood| mood.name})) %>
+            <% moods = current_user.moods.map { |mood| [mood.name, mood.id]} %>
+            <%= select_tag(:mood, options_for_select(moods)) %>
+            <%# <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
+
           </div>
         </div>
       <% end %>
