@@ -48,7 +48,7 @@ class ResultsController < ApplicationController
       {
         lat: result['geocodes']['main']['latitude'],
         lng: result['geocodes']['main']['longitude'],
-        info_window: render_to_string(partial: "info_window", locals: {name: result["name"], formated_address: result["formated_address"]}),
+        info_window: render_to_string(partial: "info_window", locals: {name: result["name"], rating: result["rating"], formated_address: result["formated_address"]}),
       }
     end
   end
