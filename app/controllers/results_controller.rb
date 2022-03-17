@@ -37,7 +37,8 @@ class ResultsController < ApplicationController
     @markers = @results.map do |result|
       {
         lat: result['geocodes']['main']['latitude'],
-        lng: result['geocodes']['main']['longitude']
+        lng: result['geocodes']['main']['longitude'],
+        info_window: render_to_string(partial: "info_window", locals: {name: result["name"], formated_address: result["formated_address"]}),
       }
     end
   end
