@@ -8,9 +8,11 @@
       <%= form_with url: "results", method: :get do |form| %>
       <%# <%= form.label :query, "Search for:" %>
         <div class="row">
-          <div class="d-flex align-items-center flex-wrap">
+          <div class="d-flex align-items-center flex-wrap" data-controller="radio-checked">
             <%= form.collection_radio_buttons(:mood, @moods, :id, :name)  do |b|
-              b.label(class: "btn btn-primary btn-sm me-1 my-1 col single-letter-height", :"data-value" => b.value) { b.radio_button(class:'btn-check') + b.text }
+              b.label(class: "btn btn-primary btn-sm me-1 my-1 col single-line",
+                      data: { target:'option', action: 'click->radio-checked#' },
+                      :"data-value" => b.value) { b.radio_button(class:'btn-check') + b.text }
             end %>
           </div>
           <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

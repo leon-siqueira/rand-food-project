@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+input[type=radio]:checked + label {
+  background-color: red !important;
+}
+
 @media (max-width: 768px) {
   .form-search {
     width: 100%;
