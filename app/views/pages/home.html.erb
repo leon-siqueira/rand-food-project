@@ -1,37 +1,51 @@
 <header class="header-container">
-  <div class="container header-container-main">
-    <div class="header-container-text">
-      <h1 class="title">Don`t overthink it!</h1>
-      <h3 class="subtitle">Let us find the right food for your mood.</h3>
-    </div>
-    <div class="form-responsive">
-      <%= form_with url: "results", method: :get do |form| %>
-      <%# <%= form.label :query, "Search for:" %>
-        <div class="row">
-          <div class="col-lg-8 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            <%= form.text_field :query,
-                              placeholder: "Enter your address",
-                              class: "d-none",
-                              data: { geocoder_target: "query"}%>
-          </div>
-          <div class="col-lg-3">
-            <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
-          </div>
-          <div class="col-lg-8 d-flex select-tag">
-            <% moods = current_user.moods.map { |mood| [mood.name, mood.id]} %>
-            <%= select_tag(:mood, options_for_select(moods)) %>
-            <%# <%= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
-
-          </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="header-container-main col-lg-6 ps-4">
+        <div class="header-container-text">
+          <h1 class="title">Don`t overthink it!</h1>
+          <h3 class="subtitle">Let us find the right food for your mood.</h3>
         </div>
-      <% end %>
-    </div>
+        <div class="form-responsive">
+          <%= form_with url: "results", method: :get do |form| %>
+          <%# <%= form.label :query, "Search for:" %>
+            <div class="row">
+              <div class="d-flex align-items-center flex-wrap mb-2" data-controller="radio-checked">
+                <%= form.collection_radio_buttons(:mood, @moods, :id, :name)  do |b|
+                  b.label(class: "btn btn-radio btn-sm my-1 me-1 single-line rounded-pill ease-out",
+                          data: { radio_checked_target: 'option', action: 'click->radio-checked#selectRadioOption' },
+                          :"data-value" => b.value) { b.radio_button(class:'d-none') + b.text }
+                end %>
+                <%= link_to do%>
+                  <div class="btn-add btn-sm my-1 me-1 rounded-pill ease-out">
+                    <i class="fa-solid fa-plus"></i>
+                  </div>
+                <% end %>
+              </div>
+              <div class="col-lg-9 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                <%= form.text_field :query,
+                                  placeholder: "Enter your address",
+                                  class: "d-none",
+                                  data: { geocoder_target: "query"}%>
+              </div>
+              <div class="col-lg-3">
+                <%= form.submit "Search", class:"btn btn-botao w-100 yellow-hover ease-out" %>
+              </div>
+              <div class="col-lg-8 <%#select-tag%>">
 
-  </div>
-  <div class="header-image">
-    <%= image_tag "img-home.svg"%>
-    <div class="image-text">
-      <%# <h2 class="subtitle">I’ll be there for yoooou!</h2> %>
+                <%#= select_tag(:taste, options_for_select(['','Romantic','Cozy','Sushi','Tacos', 'Pizza'])) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="header-image col-lg-5">
+        <%= image_tag "img-home.svg"%>
+        <div class="image-text">
+          <%# <h2 class="subtitle">I’ll be there for yoooou!</h2> %>
+        </div>
+      </div>
     </div>
   </div>
 </header>
