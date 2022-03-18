@@ -1,2 +1,6 @@
 <h1>Moods#show</h1>
 <p>Find me in app/views/moods/show.html.erb</p>
+<%= @mood.id %>
+<%= link_to mood_path(@mood), method: :delete do %>
+  <i class="fas fa-trash-alt text-danger fs-4"></i>
+<% end %>

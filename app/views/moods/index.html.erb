@@ -2,8 +2,13 @@
 <p>Find me in app/views/moods/index.html.erb</p>
 
   <% @moods.each do |mood| %>
+
     <% if mood.user_id == current_user.id %>
     <h2><%= mood.name %></h2>
+    <%= link_to mood_path(mood) do %>
+      <button>Mais detalhes</button>
+    <% end %>
+
     <p>query: <%= mood.query%></p>
     <p>min price: <%= mood.min_price%></p>
     <p>max price: <%= mood.max_price%></p>

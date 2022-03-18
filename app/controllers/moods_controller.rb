@@ -6,6 +6,8 @@ class MoodsController < ApplicationController
   end
 
   def new
+    @tastes = ['sushi', 'mexican', 'burger' ]
+    @ambient = ['crowded', 'music', 'romantic' ]
     @mood = Mood.new
   end
 
