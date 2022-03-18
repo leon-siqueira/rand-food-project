@@ -77,6 +77,5 @@ class ResultsController < ApplicationController
     #minprice = valor de 1 até 4
     #maxprice = valor de 1 até 4
     #limit = limite de resultados - max 50 min 1 // teste = 5
-
   end
 end
