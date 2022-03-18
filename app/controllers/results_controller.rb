@@ -26,7 +26,6 @@ class ResultsController < ApplicationController
   private
 
   def set_request
-    # o site tá quebrando se não há query alguma inserida na barra de pesquisa e o usuário clica search "NoMethodError in Results#index"
     if params[:query].present?
       if params[:query].count("a-zA-Z") > 0
         results = Geocoder.search(params[:query])
@@ -57,27 +56,33 @@ class ResultsController < ApplicationController
   end
 
   def set_params
-    #@taste_options = ['sushi', 'pizza']
-    @setted_mood = Mood.find(params[:mood].to_i) if params[:mood].present?
-    @tastes = params[:taste]
+    @mood = Mood.find(params[:mood]) if params[:mood].present?
+    if @mood.nil?
+      @tastes = ''
+      @radius = 10000
+      @min_price = 1
+      @max_price = 4
+    else
+      @tastes = @mood.query.gsub(' ', '%20').gsub(',', '%2C')
+      @radius = @mood.near
+      @min_price = @mood.min_price
+      @max_price = @mood.max_price
+    end
+    @limit = 10
+    @open_now = 'true'
+    @latlong =
+    @categories = 13000
+    @exclude_chains = true
+
     # %20 = espaço, %2C = virgula
     # Tastes detalhados pelo usuário - tacos, good for groups, romantic, sushi, good for late nights, live music.
-    @radius = 5000
     #raio de busca de restaurantes - padrão pode ser 5km
-    @open_now = ''
     #open_now = true(padrão)
-    @latlong = 0
-    @categories = 13000
     #categories = 13000 por padrão (13000 referente a restaurantes e bares)
-    @exclude_chains = true
     #exclude_all_chains - excluir grandes redes de restaurantes (true or false)
-    @min_price = 1
     #minprice = valor de 1 até 4
-    @max_price = 4
     #maxprice = valor de 1 até 4
-    @limit = 10
     #limit = limite de resultados - max 50 min 1 // teste = 5
-
 
   end
 end

@@ -16,10 +16,18 @@
                           data: { radio_checked_target: 'option', action: 'click->radio-checked#selectRadioOption' },
                           :"data-value" => b.value) { b.radio_button(class:'d-none') + b.text }
                 end %>
-                <%= link_to do%>
-                  <div class="btn-add btn-sm my-1 me-1 rounded-pill ease-out">
-                    <i class="fa-solid fa-plus"></i>
-                  </div>
+                <% if user_signed_in? %>
+                  <%= link_to new_mood_path do%>
+                    <div class="btn-add btn-sm my-1 me-1 rounded-pill ease-out">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_user_session_path do%>
+                    <div class="btn-add btn-sm my-1 me-1 rounded-pill ease-out">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
               <div class="col-lg-9 d-flex align-items-end" data-controller="geocoder" data-geocoder-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
