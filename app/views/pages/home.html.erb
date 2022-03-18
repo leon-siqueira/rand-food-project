@@ -16,7 +16,7 @@
                           data: { radio_checked_target: 'option', action: 'click->radio-checked#selectRadioOption' },
                           :"data-value" => b.value) { b.radio_button(class:'d-none') + b.text }
                 end %>
-                <%= link_to do%>
+                <%= link_to new_mood_path do%>
                   <div class="btn-add btn-sm my-1 me-1 rounded-pill ease-out">
                     <i class="fa-solid fa-plus"></i>
                   </div>
