@@ -56,7 +56,8 @@ class ResultsController < ApplicationController
   def set_params
     @mood = Mood.find(params[:mood])
 
-    @tastes = @mood.query.gsub(' ', '%20').gsub(',', '%2C')
+    @tastes = @mood.tastes.gsub(' ', '%20').gsub(',', '%2C')
+    @query = @mood.query
     @radius = @mood.near
     @min_price = @mood.min_price
     @max_price = @mood.max_price
