@@ -16,6 +16,46 @@
     border-color: #ffffff00
   }
 
+  .single-line{
+    max-height: 2.2em;
+    text-align: center;
+    width: max-content !important;
+  }
+
+  .btn-radio{
+    background-color: transparent;
+    border: #3A3335 solid 1px;
+    color: #3A3335;
+    font-weight: 300;
+    &:hover{
+      background-color: #f4f4f480;
+      border: #f4f4f480 solid 1px ;
+      color: #DB6735;
+      transition: 0.1s;
+    }
+  }
+
+  .btn-add{
+    background-color: #3A3335;
+    border: #3A3335 solid 2px;
+    max-height: 2.2em;
+    text-align: center;
+    width: 45px;
+    i {
+      color: #F7CB15;
+    }
+  }
+
+  .radio-checked {
+    background-color: #f4f4f4;
+    color: #DB6735;
+    border: #f4f4f4 solid 1px ;
+    font-weight: 500;
+    &:hover{
+      background-color: #f4f4f4;
+      color: #db6735;
+    }
+  }
   .btn-voltar { // from index.html
     position: absolute;
     top: 23px;
@@ -68,8 +108,8 @@
     }
   }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #d95c39;
-  // border-color: #ffffff00; /*set the color you want here*/
-}
+// .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+//   color: #fff;
+//   background-color: #d95c39;
+//   // border-color: #ffffff00; /*set the color you want here*/
+// }
