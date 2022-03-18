@@ -9,23 +9,37 @@
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
   <div class="result-random">
     <ul>
-      <li>Distance: <%= @show_result['distance'] %></li>
-      <li>Description: <%= @show_result['description'] %></li>
-      <li>Phone number: <%= @show_result['tel'] %></li>
-      <li>Website: <%= @show_result['website'] %></li>
-      <li>Rating: <%= @show_result['rating'] %></li>
-      <li>Price: <%= @show_result['price'] %></li>
-      <li>Address: <%= @show_result['location']['address'] %></li>
-      <%# <li>Tastes <% @show_result['tastes'] </li> %>
+      <% if @show_result['distance']%>
+        <li><i class="fas fa-walking icons"></i> <%= @show_result['distance'] %> meters from you</li>
+      <% end %>
+      <% if @show_result['location']['address'] %>
+        <li><i class="fas fa-map-marker-alt icons"></i> <%= @show_result['location']['address'] %></li>
+      <% end %>
+      <% if @show_result['rating'] %>
+        <li><i class="far fa-star icons"></i> <%= @show_result['rating'] %></li>
+      <% end %>
+      <% if @show_result['price'] %>
+        <li><i class="fas fa-dollar-sign icons"></i> <%= @show_result['price'] %></li>
+      <% end %>
+      <% if @show_result['description'] %>
+        <li><i class="fas fa-info-circle icons"></i> <%= @show_result['description'] %></li>
+      <% end %>
+      <% if @show_result['tel'] %>
+        <li><i class="fas fa-phone-square-alt icons"> </i><%= @show_result['tel'] %></li>
+      <% end %>
+      <% if @show_result['website'] %>
+        <li><i class="fas fa-globe-americas icons"></i> <%= @show_result['website'] %></li>
+      <% end %>
       <% if @show_result['social_media']['instagram'] %>
-        <li>Instagram <%= @show_result['social_media']['instagram'] %></li>
+        <li><i class="fab fa-instagram icons"></i> <%= @show_result['social_media']['instagram'] %></li>
       <% end %>
       <% if @show_result['social_media']['facebook_id'] %>
-        <li>Facebook <%= @show_result['social_media']['facebook_id'] %></li>
+        <li><i class="fab fa-facebook icons"></i> <%= @show_result['social_media']['facebook_id'] %></li>
       <% end %>
+      <%# <li>Tastes <% @show_result['tastes'] </li> %>
     </ul>
   </div>
   <div style="width: 80%;">
