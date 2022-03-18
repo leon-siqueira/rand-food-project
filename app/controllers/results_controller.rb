@@ -54,14 +54,18 @@ class ResultsController < ApplicationController
   end
 
   def set_params
-    @mood = Mood.find(params[:mood])
-
-    @tastes = @mood.tastes.gsub(' ', '%20').gsub(',', '%2C')
-    @query = @mood.query
-    @radius = @mood.near
-    @min_price = @mood.min_price
-    @max_price = @mood.max_price
-
+    @mood = Mood.find(params[:mood]) if params[:mood].present?
+    if @mood.nil?
+      @tastes = ''
+      @radius = 10000
+      @min_price = 1
+      @max_price = 4
+    else
+      @tastes = @mood.query.gsub(' ', '%20').gsub(',', '%2C')
+      @radius = @mood.near
+      @min_price = @mood.min_price
+      @max_price = @mood.max_price
+    end
     @limit = 10
     @open_now = 'true'
     @latlong =
