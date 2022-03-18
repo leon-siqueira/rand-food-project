@@ -39,19 +39,25 @@
 
   .title-results-random {
     font-family: 'Roboto';
-    font-weight: 900;
+    font-weight: 600;
     font-size: 1.3rem;
     color: #3A3335;
     text-align: center;
     margin-top: 10px;
   }
 
+  .title-results-restaurant-name {
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #3A3335;
+    text-align: center;
+  }
+  
   .botoes {
     display: flex;
     flex-direction: row;
   }
-
-
 
   li {
     font-family: 'Roboto';
@@ -68,7 +74,7 @@
     color: #3A3335;
     font-size: 20px;
     align-items: left;
-    margin-right: 1px;
+    margin-right: 3px;
   }
 
 }
