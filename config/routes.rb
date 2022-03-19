@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # resource :moods, only: %i[show, edit, update, destroy]
   resources :results, only: %i[index]
   get 'results/show', to: 'results#show', as: 'result'
+  get '/about', to: 'pages#about'
 
   devise_for :users
 

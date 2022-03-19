@@ -31,8 +31,17 @@
   z-index: -50;
 }
 
+#about{
+  display: flex;
+  min-height: 90vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .fill{
   width: 100%;
+  min-height: 100vh;
   height: 100%;
 }
 
