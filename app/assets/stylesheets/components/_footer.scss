@@ -24,7 +24,14 @@
   // opacity: 0.5;
 }
 
-.a {
-  color: #FDFFFF;
+a {
+  color: #6c757d;
   text-decoration: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 10px;
+  align-items: center;
 }
