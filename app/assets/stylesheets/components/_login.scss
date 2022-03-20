@@ -7,11 +7,15 @@
   background-color: #F7CB15;
 }
 
+.p-5 {
+  margin: 2rem 0;
+}
+
 
 @media (max-width: 560px){
   #login{
     height: 100%;
-    margin: 2rem 0;
+    // margin: 2rem 0;
     background-color: #F7CB15;
   }
 }
