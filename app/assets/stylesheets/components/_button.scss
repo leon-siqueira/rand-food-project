@@ -13,7 +13,18 @@
     height: 42px;
     // left: 479px;
     // top: 462px;
-    border-color: #ffffff00
+    border-color: #ffffff00;
+  }
+
+  .btn-botao:hover {
+    color: #3A3335;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50% !important;
   }
 
   .single-line{
@@ -67,12 +78,12 @@
 
   }
 
-  .btn-choose  { // from index.html
-    background-color: #D95D39;
+  .btn-choose-another { // from index.html
+    background-color: #FDFFFF;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
-    color: #FDFFFF;
+    font-size: 18px;
+    color: #D95D39;
     border-radius: 30px;
     text-align: center;
     min-width: 115px;
@@ -80,31 +91,63 @@
     padding: 10px;
     // box-shadow: 5px 5px 5px rgb(167, 165, 165);
     margin-bottom: 10px;
+    border: 1px solid #D95D39;
   }
 
   .btn-choose:hover { // from index.html
     color: #3A3335;
   }
 
-  .btn-leave-page {
-    background-color: #FDFFFF;
+  .btn-directions {
+    background-color: #D95D39;
     // border-style: solid;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
-    color: #D95D39;
+    font-size: 18px;
+    color: #FDFFFF;
     border-radius: 30px;
     text-align: center;
     min-width: 115px;
     width: 50%;
     padding: 10px;
-    border: 1px solid #D95D39;
+
     // box-shadow: 5px 5px 5px rgb(167, 165, 165);
+  }
+
+  .btn-choose {
+    background-color: #D95D39;
+    // border-style: solid;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FDFFFF;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 115px;
+    width: 50%;
+    padding: 10px;
+
+    // box-shadow: 5px 5px 5px rgb(167, 165, 165);
+  }
+
+  .btn-directions:hover { // from index.html
+    color: #3A3335;
   }
 
   @media (max-width: 768px) {
     .btn-primary {
       width: 100%;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90% !important;
+    }
+
+    .btn-choose {
+      width: 90%;
+      margin-bottom: 2rem;
     }
   }
 
