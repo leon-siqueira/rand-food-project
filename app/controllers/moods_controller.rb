@@ -1,6 +1,5 @@
 class MoodsController < ApplicationController
   before_action :set_mood, only: [:show, :edit, :update, :destroy]
-  before_action :id_check, only: [:show, :edit, :update, :destroy]
 
   def index
     @moods = current_user.moods.all
@@ -43,12 +42,9 @@ class MoodsController < ApplicationController
 
   private
 
-  def id_check
-    redirect_to root_path if @mood.user_id != current_user.id
-  end
-
   def set_mood
     @mood = Mood.find(params[:id])
+    redirect_to root_path if @mood.user_id != current_user.id
   end
 
   def mood_params
