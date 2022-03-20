@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #F7CB15;
 }
 
 
 @media (max-width: 560px){
   #login{
     height: 100%;
-    margin: 2em 0;
   }
 }
