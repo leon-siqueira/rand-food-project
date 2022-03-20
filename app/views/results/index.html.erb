@@ -11,7 +11,7 @@
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <% if @results == nil %>
+  <% if @results == [] or nil %>
     <%= link_to "Choose one for me!", root_path, class: "btn-choose ease-out" %>
   <% else %>
     <%= link_to "Choose one for me!", result_path(query: params[:query], mood: params[:mood]), class: "btn-choose ease-out" %>
