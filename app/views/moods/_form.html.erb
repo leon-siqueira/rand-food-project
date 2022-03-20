@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@mood) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :tastes %>
+  <%= f.input :query %>
+
+
+
+  <% if @tastes %>
+    <div class="d-flex">
+      <% @tastes.each do |i| %>
+        <span class="btn btn-primary"><%= i %></span>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <%= f.input :near %>
+  <%= f.input :min_price %>
+  <%= f.input :max_price %>
+  <%= f.submit 'Salvar', class:'btn btn-primary mt-2' %>
+<% end %>
