@@ -1,6 +1,5 @@
 @import "home";
 
-
 .result-section {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -20,8 +19,8 @@
   // justify-content: center;
 
   .result-random {
-    padding-top: 2rem;
-    background-color: white;
+    padding-top: 1rem;
+    background-color: #FDFFFF;
     min-height: 5%;
     max-height: 100%;
     max-width: 29rem;
@@ -31,15 +30,28 @@
     justify-content: center;
     padding-left: 1rem;
     padding-right: 1.8rem;
+    width: 306px;
+
+    ul {
+      padding: 0px;
+    }
   }
 
   .title-results-random {
     font-family: 'Roboto';
-    font-weight: 900;
+    font-weight: 600;
     font-size: 1.3rem;
     color: #3A3335;
     text-align: center;
     margin-top: 10px;
+  }
+
+  .title-results-restaurant-name {
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #3A3335;
+    text-align: center;
   }
 
   .botoes {
@@ -61,6 +73,8 @@
   .icons{
     color: #3A3335;
     font-size: 20px;
+    align-items: left;
+    margin-right: 3px;
   }
 
 }

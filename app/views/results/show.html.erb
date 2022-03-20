@@ -1,31 +1,32 @@
 
 <section class="result-section">
-  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "btn-voltar" %>
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "btn-voltar" %>
   <div class="title-results-random">
     <%= "Today's choice is:" %> <br />
+  </div>
+  <div class="title-results-restaurant-name">
     <%= @show_result['name'] %>
   </div>
-  <div class="mapbox" style="width: 80%; height: 500px;"
+  <div class="mapbox" style="width: 90%; height: 500px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="result-random">
     <ul>
+      <% if @show_result['price'] %>
+       <li> <% @show_result['price'].to_i.times do %>
+         <i class="fas fa-dollar-sign icons"></i>
+        <% end %></li>
+      <% end %>
+       <% if @show_result['rating'] %>
+        <li><i class="far fa-star icons"></i> <%= @show_result['rating'] %></li>
+      <% end %>
       <% if @show_result['distance']%>
         <li><i class="fas fa-walking icons"></i> <%= @show_result['distance'] %> meters from you</li>
       <% end %>
       <% if @show_result['location']['address'] %>
         <li><i class="fas fa-map-marker-alt icons"></i> <%= @show_result['location']['address'] %></li>
-      <% end %>
-      <% if @show_result['rating'] %>
-        <li><i class="far fa-star icons"></i> <%= @show_result['rating'] %></li>
-      <% end %>
-      <% if @show_result['price'] %>
-        <li><i class="fas fa-dollar-sign icons"></i> <%= @show_result['price'] %></li>
-      <% end %>
-      <% if @show_result['description'] %>
-        <li><i class="fas fa-info-circle icons"></i> <%= @show_result['description'] %></li>
       <% end %>
       <% if @show_result['tel'] %>
         <li><i class="fas fa-phone-square-alt icons"> </i><%= @show_result['tel'] %></li>
@@ -39,12 +40,15 @@
       <% if @show_result['social_media']['facebook_id'] %>
         <li><i class="fab fa-facebook icons"></i> <%= @show_result['social_media']['facebook_id'] %></li>
       <% end %>
+      <% if @show_result['description'] %>
+        <li><i class="fas fa-info-circle icons"></i> <%= @show_result['description'] %></li>
+      <% end %>
       <%# <li>Tastes <% @show_result['tastes'] </li> %>
     </ul>
   </div>
-  <div style="width: 80%;">
-    <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose w-100 mb-2" %>
-    <%= link_to "Directions", root_path, class: "btn btn-leave-page w-100 mb-2" %>
-    <%= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
+  <div class="buttons" style="width: 90%;">
+    <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose-another ease-out w-100 mb-2" %>
+    <%= link_to "Directions", root_path, class: "btn btn-directions w-100 ease-out mb-4" %>
+    <%#= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>
