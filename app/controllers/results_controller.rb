@@ -97,9 +97,10 @@ end
 # end
 # end
 
-# @mood.tastes = "sushi, tacos, burger"
-# @count = @tastes.split.count # 3
-# @limit = 50 / tastes.split.count
+# @mood.tastes = "sushi, tacos, burger" #ATÉ 3
+# @mood.query = "romantic"  # SOMENTE 1
+# @count = @mood.tastes.split.count # 3
+# @limit = 50 / count
 
 # if count == nil?
 # elsif count == 1
@@ -110,7 +111,7 @@ end
 #   @limit = 20
 # end
 
-# @resultados_organizados = [] # 60 resultados
+# resultados_organizados = [] # 60 resultados
 
 # @tastes.split.each do |taste|
 #   url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
@@ -119,6 +120,6 @@ end
 #   @resultados_organizados = foursquare_response['results']
 # end
 
-# @resultados_organizados.select { |r| r["tastes"].include?(@query) }
+# @resultados_final = resultados_organizados.select { |r| r["tastes"].include?(@query) }
 
 # @resultados_organizados.sample
