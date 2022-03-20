@@ -13,14 +13,16 @@ class ResultsController < ApplicationController
   def show
     set_request
     @show_result = @results.sample
-    @markers = [
-      {
-        lat: @show_result['geocodes']['main']['latitude'],
-        lng: @show_result['geocodes']['main']['longitude'],
-        info_window: render_to_string(partial: "info_window", locals: { name: @show_result["name"], price: @show_result["price"], rating: @show_result["rating"] }),
-        image_url: helpers.asset_url("orange-pin.svg")
-      }
-    ]
+    unless @show_result.nil?
+      @markers = [
+        {
+          lat: @show_result['geocodes']['main']['latitude'],
+          lng: @show_result['geocodes']['main']['longitude'],
+          info_window: render_to_string(partial: "info_window", locals: { name: @show_result["name"], price: @show_result["price"], rating: @show_result["rating"] }),
+          image_url: helpers.asset_url("orange-pin.svg")
+        }
+      ]
+    end
   end
 
   private
