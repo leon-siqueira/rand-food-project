@@ -46,9 +46,9 @@
       <%# <li>Tastes <% @show_result['tastes'] </li> %>
     </ul>
   </div>
-  <div style="width: 80%;">
+  <div style="width: 90%;">
     <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose w-100 mb-2" %>
     <%= link_to "Directions", root_path, class: "btn btn-leave-page w-100 mb-2" %>
-    <%= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
+    <%#= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>

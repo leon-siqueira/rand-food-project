@@ -68,11 +68,11 @@
   }
 
   .btn-choose  { // from index.html
-    background-color: #D95D39;
+    background-color: #FDFFFF;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
-    color: #FDFFFF;
+    font-size: 18px;
+    color: #D95D39;
     border-radius: 30px;
     text-align: center;
     min-width: 115px;
@@ -80,6 +80,7 @@
     padding: 10px;
     // box-shadow: 5px 5px 5px rgb(167, 165, 165);
     margin-bottom: 10px;
+    border: 1px solid #D95D39;
   }
 
   .btn-choose:hover { // from index.html
@@ -87,19 +88,23 @@
   }
 
   .btn-leave-page {
-    background-color: #FDFFFF;
+    background-color: #D95D39;
     // border-style: solid;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
-    color: #D95D39;
+    font-size: 18px;
+    color: #FDFFFF;
     border-radius: 30px;
     text-align: center;
     min-width: 115px;
     width: 50%;
     padding: 10px;
-    border: 1px solid #D95D39;
+
     // box-shadow: 5px 5px 5px rgb(167, 165, 165);
+  }
+
+  .btn-leave-page:hover { // from index.html
+    color: #3A3335;
   }
 
   @media (max-width: 768px) {
