@@ -25,20 +25,21 @@
 //   // opacity: 0.5;
 // }
 
-a {
+
+.link-about {
   color: #FDFFFF;
   text-decoration: none;
   align-items: center;
-}
+ }
 
-a:hover {
+.link-about:hover {
   color: #F7CB15;
 }
 
 .list-inline {
   padding-left: 0;
   list-style: none;
-  margin-top: 2.3rem;
+  margin-top: 1.6rem;
 }
 
 .text-muted {
