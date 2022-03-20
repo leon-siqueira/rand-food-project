@@ -1,22 +1,33 @@
 
-<%= simple_form_for(@mood) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :tastes %>
-  <%= f.input :query %>
 
+<%= form_with(model: mood) do |form| %>
+  <% if mood.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mood.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-
-  <% if @tastes %>
-    <div class="d-flex">
-      <% @tastes.each do |i| %>
-        <span class="btn btn-primary"><%= i %></span>
-      <% end %>
+      <ul>
+        <% mood.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
 
-  <%= f.input :near %>
-  <%= f.input :min_price %>
-  <%= f.input :max_price %>
-  <%= f.submit 'Salvar', class:'btn btn-primary mt-2' %>
+  <%= form.label :tastes %>
+  <br>
+
+  <% Mood::TASTES.each do |key| %>
+    <br>
+    <%= form.check_box :tastes, { multiple: true, checked: form.object.tastes&.include?(key.to_s) }, key, nil %>
+    <%= form.label key %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

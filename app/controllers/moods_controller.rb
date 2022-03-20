@@ -48,6 +48,6 @@ class MoodsController < ApplicationController
   end
 
   def mood_params
-    params.require(:mood).permit(:name, :tastes, :query, :near, :min_price, :max_price)
+    params.require(:mood).permit(:name, :query, :near, :min_price, :max_price, tastes: [])
   end
 end

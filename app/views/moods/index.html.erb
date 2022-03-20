@@ -15,7 +15,7 @@
               min price: <%= mood.min_price%>
               max price: <%= mood.max_price%>
             </h5>
-            <p class="card-text">taste: <%= mood.tastes %></p>
+            <p class="card-text">taste: <%= mood.tastes.to_sentence %></p>
             <p class="card-text">query: <%= mood.query%> </p>
           </div>
         <% end %>
