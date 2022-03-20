@@ -16,6 +16,13 @@
     border-color: #ffffff00
   }
 
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50% !important;
+  }
+
   .single-line{
     max-height: 2.2em;
     text-align: center;
@@ -67,7 +74,7 @@
 
   }
 
-  .btn-choose  { // from index.html
+  .btn-choose-another { // from index.html
     background-color: #FDFFFF;
     text-decoration: none;
     font-weight: 600;
@@ -87,7 +94,7 @@
     color: #3A3335;
   }
 
-  .btn-leave-page {
+  .btn-directions {
     background-color: #D95D39;
     // border-style: solid;
     text-decoration: none;
@@ -103,7 +110,23 @@
     // box-shadow: 5px 5px 5px rgb(167, 165, 165);
   }
 
-  .btn-leave-page:hover { // from index.html
+  .btn-choose {
+    background-color: #D95D39;
+    // border-style: solid;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FDFFFF;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 115px;
+    width: 50%;
+    padding: 10px;
+
+    // box-shadow: 5px 5px 5px rgb(167, 165, 165);
+  }
+
+  .btn-directions:hover { // from index.html
     color: #3A3335;
   }
 
@@ -111,8 +134,16 @@
     .btn-primary {
       width: 100%;
     }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90% !important;
+    }
+
     .btn-choose {
       width: 90%;
+      margin-bottom: 2rem;
     }
   }
 
