@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   background: #F7CB15;
-  padding: 90px 0;
+  padding: 40px 0;
   border-radius: 0px 0px 80px 80px;
   // margin-top: 56px;
 
@@ -43,14 +43,15 @@
 .section-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   margin: 2rem 0;
 
   .section-card {
-    // border: 0px solid red;
     text-align: center;
     width: 300px;
     min-width: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -91,7 +92,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  font-size: 1.5rem; // 24px
+  font-size: 1.3rem; // 24px
   line-height: 1.875; //30px
   /* or 125% */
   display: flex;
@@ -103,14 +104,26 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  font-size: 3rem; // 64px
+  font-size: 2.5rem; // 64px
   line-height: 3rem;
   /* or 31% */
   display: flex;
   align-items: center;
   color: #3A3335;
+  margin-bottom: 0;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -124,7 +137,7 @@
     }
 
     .header-image {
-      width: 80%;
+      width: 90%;
     }
   }
 
@@ -138,6 +151,7 @@
 
 .card-icon {
   width: 200px;
+  margin-bottom: 1rem;
 }
 
 .form-label {
