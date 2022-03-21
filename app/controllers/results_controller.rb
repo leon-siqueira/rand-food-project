@@ -42,14 +42,13 @@ class ResultsController < ApplicationController
 
   def set_request
     @results_pool = []
-    if @tastes.count.zero?
-      set_categories
-      url = URI("https://api.foursquare.com/v3/places/search?&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+    if @tastes.empty?
+      url = URI("https://api.foursquare.com/v3/places/search?query=#{}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
       foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
       foursquare_response = JSON.parse(foursquare_request)
       response = foursquare_response['results']
       response.each { |r| @results_pool << r }
-    else
+    elsif
       @tastes.each do |taste|
         if taste.include?("asian")
           @categories = 13_072
@@ -97,6 +96,7 @@ class ResultsController < ApplicationController
     @mood = Mood.find(params[:mood]) if params[:mood].present?
     if @mood.nil?
       @tastes = []
+      @query = ""
       @radius = 5000
       @min_price = 1
       @max_price = 4
@@ -108,7 +108,7 @@ class ResultsController < ApplicationController
       @max_price = @mood.max_price
     end
   end
-    @mood.present? ? set_limit : @limit = 10
+    @mood.present? ? set_limit : @limit = 20
     @categories = 13_000
     @open_now = 'true'
     @exclude_chains = true
