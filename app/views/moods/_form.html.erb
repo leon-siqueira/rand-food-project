@@ -13,7 +13,6 @@
   <% end %>
   <div class="field">
     <%= form.label "Name" %>
-    <br>
     <%= form.text_field :name, required: true %>
   </div>
   <br>
@@ -31,11 +30,21 @@
       <%= form.label key %>
     <% end %>
     </div>
+    <%= form.range_field :near, in: 1000..10_000, :step => 1000 %>
+  </div>
+    <div class="field">
+      <%= form.label :min_price %>
+      <%= form.number_field :min_price, in: 1..4 %>
+      <%= form.number_field :max_price, in: 1..4 %>
+    </div>
+
     <div class="actions">
       <%= form.submit %>
     </div>
-    <% end %>
-  </div>
+<% end %>
+
+
+
 
 
   <%# RANGE %>

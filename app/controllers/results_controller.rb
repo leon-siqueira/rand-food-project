@@ -7,10 +7,11 @@ class ResultsController < ApplicationController
   before_action :set_params
 
   def index
-    set_request
+    set_geocode
   end
 
   def show
+    set_geocode
     set_request
     @show_result = @results.sample
     unless @show_result.nil?
@@ -27,7 +28,7 @@ class ResultsController < ApplicationController
 
   private
 
-  def set_request
+  def set_geocode
     if params[:query].present?
       if params[:query].count("a-zA-Z") > 0
         results = Geocoder.search(params[:query])
@@ -35,15 +36,19 @@ class ResultsController < ApplicationController
       else
         @latlong = params[:query]
       end
+      set_request
+    else
+      redirect_to root_path
+    end
+  end
+
+  def set_request
       url = URI("https://api.foursquare.com/v3/places/search?query=#{@tastes}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
       foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
       foursquare_response = JSON.parse(foursquare_request)
       @results = foursquare_response['results']
       @results = @results.sort_by { |result| result["geocodes"]["main"]["latitude"] }
       set_markers
-    else
-      redirect_to root_path
-    end
   end
 
   def set_markers
@@ -61,21 +66,21 @@ class ResultsController < ApplicationController
     @mood = Mood.find(params[:mood]) if params[:mood].present?
     if @mood.nil?
       @tastes = ''
-      @radius = 10000
+      @radius = 5000
       @min_price = 1
       @max_price = 4
     else
-      @tastes = @mood.query.gsub(' ', '%20').gsub(',', '%2C')
-      @radius = @mood.near
+      @tastes = @mood.tastes.join #.gsub(' ', '%20').gsub(',', '%2C')
+      @query = @mood.query
+      @mood.near.to_i < 1 ? @radius = 5000 : @radius = @mood.near.to_i
       @min_price = @mood.min_price
       @max_price = @mood.max_price
     end
     @limit = 10
     @open_now = 'true'
-    @latlong =
-    @categories = 13000
+    @latlong = ''
+    @categories = 13_000
     @exclude_chains = true
-
   end
 end
 
