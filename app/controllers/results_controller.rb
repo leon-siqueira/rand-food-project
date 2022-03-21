@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
           lat: @show_result['geocodes']['main']['latitude'],
           lng: @show_result['geocodes']['main']['longitude'],
           info_window: render_to_string(partial: "info_window", locals: { name: @show_result["name"], price: @show_result["price"], rating: @show_result["rating"] }),
-          image_url: helpers.asset_url("orange-pin.svg")
+          image_url: helpers.asset_url("orange-pin.png")
         }
       ]
     end
@@ -88,7 +88,7 @@ class ResultsController < ApplicationController
         lat: result['geocodes']['main']['latitude'],
         lng: result['geocodes']['main']['longitude'],
         info_window: render_to_string(partial: "info_window", locals: { name: result["name"], rating: result["rating"] }),
-        image_url: helpers.asset_url("orange-pin.svg")
+        image_url: helpers.asset_url("orange-pin.png")
       }
     end
   end
