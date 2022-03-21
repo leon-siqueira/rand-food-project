@@ -3,11 +3,12 @@ require 'net/http'
 require "open-uri"
 
 class ResultsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :index, :show ]
   before_action :set_params
 
   def index
     set_geocode
+    raise
   end
 
   def show
@@ -43,12 +44,25 @@ class ResultsController < ApplicationController
   end
 
   def set_request
-    url = URI("https://api.foursquare.com/v3/places/search?query=#{@tastes}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
-    foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
-    foursquare_response = JSON.parse(foursquare_request)
-    @results = foursquare_response['results']
-    raise
+    @results_pool = []
+    @tastes.each do |taste|
+      url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+      foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
+      foursquare_response = JSON.parse(foursquare_request)
+      response = foursquare_response['results']
+      response.each { |r| @results_pool << r }
+    end
+    result_filter
     set_markers
+  end
+
+  def result_filter
+    @final_results = []
+    # @final_results << @results_pool.select { |r| r["tastes"].include?(@query) }
+    @results_pool.each do |result|
+      @final_results << result if result['tastes']&.include?(@query)
+    end
+    @query == "" ? @results = @results_pool : @results = @final_results
   end
 
   def set_markers
@@ -66,73 +80,27 @@ class ResultsController < ApplicationController
   def set_params
     @mood = Mood.find(params[:mood]) if params[:mood].present?
     if @mood.nil?
-      @tastes = ''
+      @tastes = []
       @radius = 5000
       @min_price = 1
       @max_price = 4
     else
-      @tastes = @mood.tastes #.join.gsub(' ', '%20').gsub(',', '%2C')
+      @tastes = @mood.tastes.map { |t| t.gsub(' ', '%20') }
       @query = @mood.query
-      @mood.near.to_i < 1000 ? @radius = 5000 : @radius = @mood.near.to_i
+      if @mood.near.to_i < 1000 ? @radius = 5000 : @radius = @mood.near.to_i
       @min_price = @mood.min_price
       @max_price = @mood.max_price
     end
-    @mood.tastes? ? set_limit : @limit = 10
+  end
+    @mood.present? ? set_limit : @limit = 10
     @open_now = 'true'
     @categories = 13_000
     @exclude_chains = true
   end
 
   def set_limit
-    count = @mood.tastes.count
-    @limit = 50 / count
+    count = 1
+    @mood.tastes.count.zero? ? count : count = @mood.tastes.count
+    @limit = 30 / count
   end
-
-# if count == nil?
-# elsif count == 1
-#   @limit = 50
-# elsif count == 2
-#   @limit = 25
-# elsif count == 3
-#   @limit = 20
-# end
-
-
 end
-
-# def set_params
-#   @mood = Mood.find(params[:mood]) if params[:mood].present?
-#   if @mood.nil?
-#     @tastes = ''
-#     @radius = 10000
-#     @min_price = 1
-#     @max_price = 4
-#   else
-#     @tastes = @mood.tastes
-#     @query = @mood.query
-#     @radius = @mood.near
-#     @min_price = @mood.min_price
-#     @max_price = @mood.max_price
-#   end
-#   @limit = 10
-#   @open_now = 'true'
-#   @latlong =
-#   @categories = 13000
-#   @exclude_chains = true
-# end
-# end
-
-
-
-# resultados_organizados = [] # 60 resultados
-
-# @tastes.split.each do |taste|
-#   url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
-#   foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
-#   foursquare_response = JSON.parse(foursquare_request)
-#   @resultados_organizados = foursquare_response['results']
-# end
-
-# @resultados_final = resultados_organizados.select { |r| r["tastes"].include?(@query) }
-
-# @resultados_organizados.sample
