@@ -11,7 +11,7 @@
 
 .new-mood-box {
   border-radius: 10px;
-  background-color:#f4f4f4;
+  background-color:#FDFFFF;
   max-height: 100%;
   padding: 2rem;
   margin: 2rem;
@@ -39,6 +39,12 @@
   justify-content: space-between;
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .price {
   margin-top: 5px;
   display: flex;
@@ -48,4 +54,34 @@
 
 .actions {
   margin-top: 5px;
+}
+
+.mood-menu-container {
+  // background-color: #F7CB15;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-3 {
+  margin-top: 0;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.card-header {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.text-end {
+  display: flex;
+  gap: 3px;
+}
+
+.new-mood-btn {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
