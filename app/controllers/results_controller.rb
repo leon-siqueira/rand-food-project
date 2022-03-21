@@ -8,7 +8,6 @@ class ResultsController < ApplicationController
 
   def index
     set_geocode
-    raise
   end
 
   def show
@@ -27,8 +26,6 @@ class ResultsController < ApplicationController
     end
   end
 
-  private
-
   def set_geocode
     if params[:query].present?
       if params[:query].count("a-zA-Z") > 0
@@ -45,12 +42,20 @@ class ResultsController < ApplicationController
 
   def set_request
     @results_pool = []
-    @tastes.each do |taste|
-      url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+    if @tastes.count.zero?
+      url = URI("https://api.foursquare.com/v3/places/search?&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
       foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
       foursquare_response = JSON.parse(foursquare_request)
       response = foursquare_response['results']
       response.each { |r| @results_pool << r }
+    else
+      @tastes.each do |taste|
+        url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+        foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
+        foursquare_response = JSON.parse(foursquare_request)
+        response = foursquare_response['results']
+        response.each { |r| @results_pool << r }
+      end
     end
     result_filter
     set_markers
