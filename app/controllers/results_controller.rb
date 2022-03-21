@@ -75,7 +75,6 @@ class ResultsController < ApplicationController
 
   def result_filter
     @final_results = []
-    # @final_results << @results_pool.select { |r| r["tastes"].include?(@query) }
     @results_pool.each do |result|
       @final_results << result if result['tastes']&.include?(@query)
     end
@@ -122,27 +121,14 @@ class ResultsController < ApplicationController
   end
 end
 
-# def set_categories
-#   if @taste.include?("asian")
-#     @categories = 13_072
-#   elsif @mood.tastes.include?("sushi")
-#     @categories = 13_263
-#   elsif @mood.tastes.include?("burger")
-#     @categories = 13_031
-#   elsif @mood.tastes.include?("pizza")
-#     @categories = 13_064
-#   else
-#     @categories = 13_000
-#   end
-
   def set_categories
-    if taste.include?("asian")
+    if @tastes.include?("asian")
       @categories = 13_072
-    elsif taste.include?("sushi")
+    elsif @tastes.include?("sushi")
       @categories = 13_263
-    elsif taste.include?("pizza")
+    elsif @tastes.include?("pizza")
       @categories = 13_064
-    elsif taste.include?("burger")
+    elsif @tastes.include?("burger")
       @categories = 13_031
     else
       @categories = 13_000
