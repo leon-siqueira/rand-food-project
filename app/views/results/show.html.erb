@@ -48,7 +48,7 @@
   </div>
   <div class="buttons" style="width: 90%;">
     <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose-another ease-out w-100 mb-2" %>
-    <%= link_to "Directions", root_path, class: "btn btn-directions w-100 ease-out mb-4" %>
+    <%= link_to "Directions", @maps_coordinates, class: "btn btn-directions w-100 ease-out mb-4" %>
     <%#= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>
