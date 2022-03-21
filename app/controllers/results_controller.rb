@@ -24,6 +24,11 @@ class ResultsController < ApplicationController
         }
       ]
     end
+    maps_coordinates
+  end
+
+  def maps_coordinates
+    @maps_coordinates = "https://www.google.com.br/maps/dir/#{@latlong}/#{@show_result['geocodes']['main']['latitude']},#{@show_result['geocodes']['main']['longitude']}"
   end
 
   def set_geocode
@@ -119,6 +124,8 @@ class ResultsController < ApplicationController
       }
     end
   end
+
+  private
 
   def set_params
     @mood = Mood.find(params[:mood]) if params[:mood].present?

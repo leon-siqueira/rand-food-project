@@ -1,52 +1,66 @@
+<section class="background">
+  <header class="new-mood">
+    <div class="new-mood-box">
+      <div class="">
+        <div class ="">
+          <%= form_with(model: mood) do |form| %>
+            <% if mood.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(mood.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<%= form_with(model: mood) do |form| %>
-  <% if mood.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(mood.errors.count, "error") %> prohibited this post from being saved:</h2>
+                <ul>
+                  <% mood.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="field-name">
+              <%= form.label "Mood name:" %>
+              <%= form.text_field :name, required: true %>
+            </div>
+            <br>
+            <div class="field-tastes-title">
+              <%= form.label "tastes:" %>
+            </div>
+              <div class="container field-tastes">
+              <% Mood::TASTES.each do |key| %>
+                <div class="taste:">
+                <%= form.check_box :tastes, { multiple: true, checked:form.object.tastes&.include?(key.to_s) }, key, nil %>
+                <%= form.label key %>
+                </div>
+              <% end %>
+              </div>
+            <div class="field">
+              <div class="query-title">
+              <%= form.label "ambiance:" %>
+              </div>
+              <% Mood::QUERY.each do |key| %>
+                <div class="query-buttons">
+                <%= form.radio_button :query, key %>
+                <%= form.label key %>
+              <% end %>
+              </div>
+              </div>
+              <div class="range-slider">
+              <%= form.label "Distance" %>
+              <%= form.range_field :near, in: 1000..10_000, :step => 1000 %>
+              </div>
+              <div class="field">
+              <div class="price">
+                <%= form.label :min_price %>
+                <%= form.number_field :min_price, in: 1..4 %>
+                <%= form.label :max_price %>
+                <%= form.number_field :max_price, in: 1..4 %>
+              </div>
+              </div>
 
-      <ul>
-        <% mood.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+              <div class="actions">
+                <%= form.submit %>
+              </div>
+          <% end %>
+          </div>
+      </div>
     </div>
-  <% end %>
-  <div class="field">
-    <%= form.label "Name" %>
-    <%= form.text_field :name, required: true %>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.label :tastes %>
-    <% Mood::TASTES.each do |key| %>
-      <%= form.check_box :tastes, { multiple: true, checked:form.object.tastes&.include?(key.to_s) }, key, nil %>
-      <%= form.label key %>
-    <% end %>
- </div>
-  <div class="field">
-    <%= form.label :query %>
-    <% Mood::QUERY.each do |key| %>
-      <%= form.radio_button :query, key %>
-      <%= form.label key %>
-    <% end %>
-    </div>
-    <%= form.range_field :near, in: 1000..10_000, :step => 1000 %>
-  </div>
-    <div class="field">
-      <%= form.label :min_price %>
-      <%= form.number_field :min_price, in: 1..4 %>
-      <%= form.number_field :max_price, in: 1..4 %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-<% end %>
-
-
-
-
-
-  <%# RANGE %>
-  <%# MIN price %>
-  <%# MAX price %>
+  </header>
+<section>

@@ -1,0 +1,51 @@
+.background {
+  background-color: #F7CB15;
+}
+
+.new-mood {
+  display: flex;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.new-mood-box {
+  border-radius: 10px;
+  background-color:#f4f4f4;
+  max-height: 100%;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.field-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-tastes {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.taste {
+  padding: 1%;
+}
+
+.range-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.price {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.actions {
+  margin-top: 5px;
+}
