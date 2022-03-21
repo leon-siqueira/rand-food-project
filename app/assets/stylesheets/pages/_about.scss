@@ -23,6 +23,9 @@
 
 .row-about {
   background-color: #FDFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-section {
