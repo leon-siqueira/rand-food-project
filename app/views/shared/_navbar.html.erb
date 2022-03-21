@@ -21,9 +21,9 @@
           </li>
         <% else %>
           <li class="navbar-nav me-auto w-100 d-flex justify-content-between">
-            <% if params[:query].present? %>
-              <%= link_to "#{params[:query]}", "#", class: "nav-link" %>
-            <% end %>
+            <%# <% if params[:query].present? %>
+              <%# <%= link_to "#{params[:query]}", "#", class: "nav-link" %>
+            <%# <% end %>
             <%= link_to "Signup", new_user_registration_path, class: "nav-link yellow-hover ease-out" %>
             <%= link_to "Login", new_user_session_path, class: "nav-link yellow-hover ease-out" %>
           </li>

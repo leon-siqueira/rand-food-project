@@ -11,9 +11,9 @@ Mood.all.each do |mood|
   mood.destroy if mood.user_id.nil?
 end
 
-Mood.create(name: "Romantic", query: "romantic")
-Mood.create(name: "Party with friends", query: "good for groups")
-Mood.create(name: "Pizza time", query: "pizza")
+Mood.create(name: "Romantic", tastes: [""], query: "romantic")
+Mood.create(name: "Party with friends", tastes: [""], query: "good for groups")
+Mood.create(name: "Pizza time", tastes: ["pizza"], query: "")
 Mood.create(name: "On a budget", max_price: 2)
-Mood.create(name: "Fitness", query: "healthy")
-Mood.create(name: "Itadakimasu!", query: "japanese")
+Mood.create(name: "Fitness", tastes: ["healthy"], query: "")
+Mood.create(name: "Itadakimasu!", tastes: ["asian"], query: "")
