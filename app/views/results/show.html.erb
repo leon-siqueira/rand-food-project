@@ -15,13 +15,15 @@
   <div class="result-random">
     <ul>
       <% if @show_result['price'] %>
-       <li> <% @show_result['price'].to_i.times do %>
-         <i class="fas fa-dollar-sign icons"></i>
-        <% end %></li>
-      <% end %>
-       <% if @show_result['rating'] %>
-        <li><i class="far fa-star icons"></i> <%= @show_result['rating'] %></li>
-      <% end %>
+      <div class="price-rating">
+        <li> <% @show_result['price'].to_i.times do %>
+          <i class="fas fa-dollar-sign icons"></i>
+          <% end %></li>
+        <% end %>
+        <% if @show_result['rating'] %>
+          <li><i class="far fa-star icons"></i> <%= @show_result['rating'] %></li>
+        <% end %>
+      </div>
       <% if @show_result['distance']%>
         <li><i class="fas fa-walking icons"></i> <%= @show_result['distance'] %> meters from you</li>
       <% end %>
@@ -48,7 +50,7 @@
   </div>
   <div class="buttons" style="width: 90%;">
     <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose-another ease-out w-100 mb-2" %>
-    <%= link_to "Directions", @maps_coordinates, class: "btn btn-directions w-100 ease-out mb-4" %>
+    <%= link_to "Directions", @maps_coordinates, target: :_blank, class: "btn btn-directions w-100 ease-out mb-4" %>
     <%#= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>
