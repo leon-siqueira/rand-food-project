@@ -43,15 +43,16 @@ class ResultsController < ApplicationController
   end
 
   def set_request
-      url = URI("https://api.foursquare.com/v3/places/search?query=#{@tastes}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
-      foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
-      foursquare_response = JSON.parse(foursquare_request)
-      @results = foursquare_response['results']
-      @results = @results.sort_by { |result| result["geocodes"]["main"]["latitude"] }
-      set_markers
+    url = URI("https://api.foursquare.com/v3/places/search?query=#{@tastes}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+    foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
+    foursquare_response = JSON.parse(foursquare_request)
+    @results = foursquare_response['results']
+    raise
+    set_markers
   end
 
   def set_markers
+    @results = @results.sort_by { |result| result["geocodes"]["main"]["latitude"] }
     @markers = @results.map do |result|
       {
         lat: result['geocodes']['main']['latitude'],
@@ -70,18 +71,33 @@ class ResultsController < ApplicationController
       @min_price = 1
       @max_price = 4
     else
-      @tastes = @mood.tastes.join #.gsub(' ', '%20').gsub(',', '%2C')
+      @tastes = @mood.tastes #.join.gsub(' ', '%20').gsub(',', '%2C')
       @query = @mood.query
-      @mood.near.to_i < 1 ? @radius = 5000 : @radius = @mood.near.to_i
+      @mood.near.to_i < 1000 ? @radius = 5000 : @radius = @mood.near.to_i
       @min_price = @mood.min_price
       @max_price = @mood.max_price
     end
-    @limit = 10
+    @mood.tastes? ? set_limit : @limit = 10
     @open_now = 'true'
-    @latlong = ''
     @categories = 13_000
     @exclude_chains = true
   end
+
+  def set_limit
+    count = @mood.tastes.count
+    @limit = 50 / count
+  end
+
+# if count == nil?
+# elsif count == 1
+#   @limit = 50
+# elsif count == 2
+#   @limit = 25
+# elsif count == 3
+#   @limit = 20
+# end
+
+
 end
 
 # def set_params
@@ -106,19 +122,7 @@ end
 # end
 # end
 
-# @mood.tastes = "sushi, tacos, burger" #ATÉ 3
-# @mood.query = "romantic"  # SOMENTE 1
-# @count = @mood.tastes.split.count # 3
-# @limit = 50 / count
 
-# if count == nil?
-# elsif count == 1
-#   @limit = 50
-# elsif count == 2
-#   @limit = 25
-# elsif count == 3
-#   @limit = 20
-# end
 
 # resultados_organizados = [] # 60 resultados
 

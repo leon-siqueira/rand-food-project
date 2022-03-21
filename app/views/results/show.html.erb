@@ -1,6 +1,6 @@
 
 <section class="result-section">
-  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "btn-voltar" %>
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, results_path(query: params[:query], mood: params[:mood]), class: "btn-voltar" %>
   <div class="title-results-random">
     <%= "Today's choice is:" %> <br />
   </div>
