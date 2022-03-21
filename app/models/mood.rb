@@ -1,6 +1,6 @@
 class Mood < ApplicationRecord
   belongs_to :user, optional: true
 
-  TASTES = %i[Argentinian Asian Brazilian BBQ Burger Chinese Comfy Coffee Desserts French Italian Mexican Peruvian Pizza Seafood Sushi Wine Vegan]
+  TASTES = %i[argentinian asian arazilian bbq burger chinese comfy coffee desserts french italian mexican peruvian pizza seafood sushi wine vegan]
   QUERY = ['romantic', 'good for groups', 'music', 'crowded']
 end

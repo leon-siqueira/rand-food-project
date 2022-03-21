@@ -50,46 +50,46 @@ class ResultsController < ApplicationController
       response.each { |r| @results_pool << r }
     elsif
       @tastes.each do |taste|
-        if taste.include?("Asian")
+        if taste.include?("asian")
           @categories = 13_072
-        elsif taste.include?("Sushi")
+        elsif taste.include?("sushi")
           @categories = 13_263
-        elsif taste.include?("Pizza")
+        elsif taste.include?("pizza")
           @categories = 13_064
-        elsif taste.include?("Burger")
+        elsif taste.include?("burger")
           @categories = 13_031
-        elsif taste.include?("Vegan")
+        elsif taste.include?("vegan")
           @categories = 13_377
-        elsif taste.include?("Seafood")
+        elsif taste.include?("seafood")
           @categories = 13_338
-        elsif taste.include?("Wine")
+        elsif taste.include?("wine")
           @categories = 13_025
-        elsif taste.include?("Mexican")
+        elsif taste.include?("mexican")
           @categories = 13_303
-        elsif taste.include?("Peruvian")
+        elsif taste.include?("peruvian")
           @categories = 13_322
-        elsif taste.include?("Italian")
+        elsif taste.include?("italian")
           @categories = 13_236
-        elsif taste.include?("Brazilian")
+        elsif taste.include?("brazilian")
           @categories = 13_079
-        elsif taste.include?("French")
+        elsif taste.include?("french")
           @categories = 13_148
-        elsif taste.include?("Argentinian")
+        elsif taste.include?("argentinian")
           @categories = 13_070
-        elsif taste.include?("BBQ")
+        elsif taste.include?("bbQ")
           @categories = 13_026
-        elsif taste.include?("Comfort")
+        elsif taste.include?("comfort")
           @categories = 13_134
-        elsif taste.include?("Coffee")
+        elsif taste.include?("coffee")
           @categories = 13_032
-        elsif taste.include?("Desserts")
+        elsif taste.include?("desserts")
           @categories = 13_040
-        elsif taste.include?("Chinese")
+        elsif taste.include?("chinese")
           @categories = 13_099
         else
           @categories = 13_000
         end
-        url = URI("https://api.foursquare.com/v3/places/search?query=#{taste}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
+        url = URI("https://api.foursquare.com/v3/places/search?query=#{taste if @categories = 13000}&ll=#{@latlong}&radius=#{@radius}&categories=#{@categories}&exclude_all_chains=#{@exclude_chains}&fields=name%2Cgeocodes%2Cdistance%2Cdescription%2Ctel%2Cwebsite%2Csocial_media%2Crating%2Cprice%2Ctastes%2Clocation&min_price=#{@min_price}&max_price=#{@max_price}&open_now=#{@open_now}&limit=#{@limit}")
         foursquare_request = URI.open(url, "Authorization" => ENV['FOURSQUARE_KEY']).read
         foursquare_response = JSON.parse(foursquare_request)
         response = foursquare_response['results']
