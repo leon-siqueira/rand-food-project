@@ -1,13 +1,13 @@
 
 <section class="result-section">
-  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "btn-voltar" %>
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "btn-voltar" %>
   <div class="title-results-random">
     <%= "Today's choice is:" %> <br />
   </div>
   <div class="title-results-restaurant-name">
     <%= @show_result['name'] %>
   </div>
-  <div class="mapbox" style="width: 80%; height: 500px;"
+  <div class="mapbox" style="width: 90%; height: 500px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -46,9 +46,9 @@
       <%# <li>Tastes <% @show_result['tastes'] </li> %>
     </ul>
   </div>
-  <div style="width: 80%;">
-    <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose w-100 mb-2" %>
-    <%= link_to "Directions", root_path, class: "btn btn-leave-page w-100 mb-2" %>
-    <%= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
+  <div class="buttons" style="width: 90%;">
+    <%= link_to "Nah, choose another", result_path(query: params[:query], mood: params[:mood]), class: "btn btn-choose-another ease-out w-100 mb-2" %>
+    <%= link_to "Directions", root_path, class: "btn btn-directions w-100 ease-out mb-4" %>
+    <%#= link_to "Delivery", root_path, class: "btn btn-leave-page w-100 mb-2" %>
   </div>
 </section>
