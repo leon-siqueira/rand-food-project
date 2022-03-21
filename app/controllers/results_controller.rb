@@ -50,14 +50,42 @@ class ResultsController < ApplicationController
       response.each { |r| @results_pool << r }
     elsif
       @tastes.each do |taste|
-        if taste.include?("asian")
+        if taste.include?("Asian")
           @categories = 13_072
-        elsif taste.include?("sushi")
+        elsif taste.include?("Sushi")
           @categories = 13_263
-        elsif taste.include?("pizza")
+        elsif taste.include?("Pizza")
           @categories = 13_064
-        elsif taste.include?("burger")
+        elsif taste.include?("Burger")
           @categories = 13_031
+        elsif taste.include?("Vegan")
+          @categories = 13_377
+        elsif taste.include?("Seafood")
+          @categories = 13_338
+        elsif taste.include?("Wine")
+          @categories = 13_025
+        elsif taste.include?("Mexican")
+          @categories = 13_303
+        elsif taste.include?("Peruvian")
+          @categories = 13_322
+        elsif taste.include?("Italian")
+          @categories = 13_236
+        elsif taste.include?("Brazilian")
+          @categories = 13_079
+        elsif taste.include?("French")
+          @categories = 13_148
+        elsif taste.include?("Argentinian")
+          @categories = 13_070
+        elsif taste.include?("BBQ")
+          @categories = 13_026
+        elsif taste.include?("Comfort")
+          @categories = 13_134
+        elsif taste.include?("Coffee")
+          @categories = 13_032
+        elsif taste.include?("Desserts")
+          @categories = 13_040
+        elsif taste.include?("Chinese")
+          @categories = 13_099
         else
           @categories = 13_000
         end
