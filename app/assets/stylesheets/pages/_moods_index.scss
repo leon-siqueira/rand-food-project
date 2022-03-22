@@ -91,9 +91,11 @@
 }
 
 .new-mood-btn {
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 87%;
 }
 
 .teste {
