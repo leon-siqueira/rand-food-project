@@ -4,7 +4,7 @@
 
 .new-mood {
   display: flex;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -87,7 +87,6 @@
 
 .text-end {
   display: flex;
-  gap: 3px;
 }
 
 .new-mood-btn {
@@ -104,6 +103,11 @@
 
 @media (max-width: 870px) {
   .new-mood-box {
-    margin: 2rem;
+    margin: auto 2rem;
   }
+}
+
+.back {
+  margin: 0;
+  padding: 0;
 }

@@ -6,12 +6,12 @@
       <div class="card-header row align-items-center">
         <div class="col-10 align-self-center fs-4">
           <%= mood.name %>
-        </div>
-        <div class="col-2 text-end">
           <%= link_to edit_mood_path(mood) do %>
           <i class="far fa-edit fs-4"></i>
           <% end %>
-          <%= link_to mood_path(mood), method: :delete do %>
+        </div>
+        <div class="col-2 text-end">
+          <%= link_to mood_path(mood), method: :delete, data: {confirm: "Are you sure?"} do %>
             <i class="fas fa-trash-alt text-danger fs-4"></i>
           <% end %>
         </div>
