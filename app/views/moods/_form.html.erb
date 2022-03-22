@@ -1,5 +1,6 @@
 <section class="background">
   <header class="new-mood">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: "teste" %>
     <div class="new-mood-box">
       <div class="">
         <div class ="">
@@ -35,11 +36,13 @@
               <div class="query-title">
               <%= form.label "ambiance:" %>
               </div>
-              <% Mood::QUERY.each do |key| %>
-                <div class="query-buttons">
-                <%= form.radio_button :query, key %>
-                <%= form.label key %>
-              <% end %>
+              <div class="query-box">
+                <% Mood::QUERY.each do |key| %>
+                  <div class="query-buttons">
+                    <%= form.radio_button :query, key %>
+                    <%= form.label key %>
+                  </div>
+                <% end %>
               </div>
               </div>
               <div class="range-slider">
@@ -56,7 +59,8 @@
               </div>
 
               <div class="actions">
-                <%= form.submit %>
+                <%# <%= form.submit %>
+                <%= form.submit "Submit", class:"btn btn-botao w-100 ease-out" %>
               </div>
           <% end %>
           </div>

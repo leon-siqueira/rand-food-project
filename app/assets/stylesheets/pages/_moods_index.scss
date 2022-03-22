@@ -11,10 +11,10 @@
 
 .new-mood-box {
   border-radius: 10px;
-  background-color:#f4f4f4;
+  background-color:#FDFFFF;
   max-height: 100%;
   padding: 2rem;
-  margin: 2rem;
+  margin: auto;
 }
 
 .field-name {
@@ -23,10 +23,12 @@
 }
 
 .field-tastes {
+
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
 .taste {
@@ -39,6 +41,12 @@
   justify-content: space-between;
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .price {
   margin-top: 5px;
   display: flex;
@@ -47,5 +55,53 @@
 }
 
 .actions {
-  margin-top: 5px;
+  margin-top: 1rem;
+}
+
+.mood-menu-container {
+  // background-color: #F7CB15;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.query-box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.my-3 {
+  margin-top: 0;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.card-header {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.text-end {
+  display: flex;
+  gap: 3px;
+}
+
+.new-mood-btn {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.teste {
+  position: sticky;
+}
+
+@media (max-width: 870px) {
+  .new-mood-box {
+    margin: 2rem;
+  }
 }

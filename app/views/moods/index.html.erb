@@ -1,30 +1,43 @@
-<div class="">
-  <h1> Meus moods</h1>
-</div>
-
-</div>
-    <div class="card bg-light mb-3" style="max-width: 18rem;">
-      <% @moods.each do |mood| %>
-        <% if mood.user_id == current_user.id %>
+<header class="background" style="min-height: 100vh; heigh: 100%">
+<div class="mood-menu-container">
+ <h3 class='text-center pt-4 my-2'>My mood menu </h3>
+  <% @moods.each do |mood| %>
+    <div class="card my-3 align-items-stretch">
+      <div class="card-header row align-items-center">
+        <div class="col-10 align-self-center fs-4">
+          <%= mood.name %>
+        </div>
+        <div class="col-2 text-end">
           <%= link_to edit_mood_path(mood) do %>
-            <div class="card-header"><%= mood.name %></div>
+          <i class="far fa-edit fs-4"></i>
           <% end %>
-        </h2>
-          <div class="card-body">
-            <h5 class="card-title">
-              min price: <%= mood.min_price%>
-              max price: <%= mood.max_price%>
-            </h5>
-            <p class="card-text">tastes: <%= mood.tastes.to_sentence %></p>
-            <p class="card-text">ambient: <%= mood.query%> </p>
-            <% if mood.near.to_i != 0 %>
-              <p class="card-text">distance: <%= mood.near.to_i %> </p>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <%= link_to mood_path(mood), method: :delete do %>
+            <i class="fas fa-trash-alt text-danger fs-4"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="m-3">
+        <h5 class="card-title">
+          Price: <%= "#{mood.min_price} - #{mood.max_price}" %>
+        </h5>
+        <h4 class="card-title">
+          Radius: <%= mood.near.to_i / 1000 %> km
+        </h4>
+        <h5 class="card-title">
+          <% if @query %>
+            Ambiance: <%= mood.query %>
+          <% end %>
+        </h5>
+        <h5 class="card-title">
+          <% if mood.tastes %>
+            Tastes: <%= mood.tastes.to_sentence %>
+          <% end %>
+        </h5>
+      </div>
     </div>
+  <% end %>
+  <div class="new-mood-btn">
+    <%= link_to 'Create a new mood!', new_mood_path, class: "btn-choose ease-out" %>
   </div>
 </div>
-
-<%= link_to 'Novo Mood', new_mood_path %>
+</header>
