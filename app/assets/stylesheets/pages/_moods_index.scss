@@ -4,7 +4,7 @@
 
 .new-mood {
   display: flex;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -87,13 +87,14 @@
 
 .text-end {
   display: flex;
-  gap: 3px;
 }
 
 .new-mood-btn {
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 87%;
 }
 
 .teste {
@@ -102,6 +103,11 @@
 
 @media (max-width: 870px) {
   .new-mood-box {
-    margin: 2rem;
+    margin: auto 2rem;
   }
+}
+
+.back {
+  margin: 0;
+  padding: 0;
 }
