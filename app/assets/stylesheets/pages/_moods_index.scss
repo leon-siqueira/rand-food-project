@@ -14,7 +14,7 @@
   background-color:#FDFFFF;
   max-height: 100%;
   padding: 2rem;
-  margin: 2rem;
+  margin: auto;
 }
 
 .field-name {
@@ -98,4 +98,10 @@
 
 .teste {
   position: sticky;
+}
+
+@media (max-width: 870px) {
+  .new-mood-box {
+    margin: 2rem;
+  }
 }
