@@ -52,3 +52,14 @@
   line-height: 0.9;
   margin-left: 2rem;
 }
+
+.drop-links {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .drop-links {
+    display: flex;
+    flex-direction: column;
+  }
+}
